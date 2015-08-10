@@ -16,6 +16,7 @@
 
 package de.tudarmstadt.ukp.dkpro.argumentation.clustering.embeddings;
 
+import de.tudarmstadt.ukp.dkpro.argumentation.clustering.EmbeddingsCachePreprocessor;
 import de.tudarmstadt.ukp.dkpro.core.api.segmentation.type.Token;
 import de.tudarmstadt.ukp.dkpro.core.frequency.tfidf.TfidfAnnotator;
 import de.tudarmstadt.ukp.dkpro.core.io.xmi.XmiReader;
@@ -23,7 +24,6 @@ import de.tudarmstadt.ukp.dkpro.core.io.xmi.XmiWriter;
 import org.apache.uima.fit.factory.AnalysisEngineFactory;
 import org.apache.uima.fit.factory.CollectionReaderFactory;
 import org.apache.uima.fit.pipeline.SimplePipeline;
-import xxx.web.comments.clustering.EmbeddingsCachePreprocessor;
 
 /**
  * @author Ivan Habernal

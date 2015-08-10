@@ -39,6 +39,7 @@ import java.io.File;
 /**
  * (c) 2015 XXX
  */
+@Deprecated // TODO delete
 public abstract class AbstractTopicAnnotator
         extends JCasAnnotator_ImplBase
 {

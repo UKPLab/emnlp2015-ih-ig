@@ -16,29 +16,9 @@
 
 package de.tudarmstadt.ukp.dkpro.argumentation.clustering.topic;
 
-import de.tudarmstadt.ukp.dkpro.core.api.metadata.type.DocumentMetaData;
-import de.tudarmstadt.ukp.dkpro.core.mallet.type.TopicDistribution;
-import de.tudarmstadt.ukp.dkpro.core.stanfordnlp.StanfordLemmatizer;
-import de.tudarmstadt.ukp.dkpro.core.stanfordnlp.StanfordSegmenter;
-import org.apache.commons.io.IOUtils;
-import org.apache.uima.UIMAException;
-import org.apache.uima.analysis_engine.AnalysisEngineProcessException;
-import org.apache.uima.fit.component.JCasConsumer_ImplBase;
 import org.apache.uima.fit.descriptor.ConfigurationParameter;
-import org.apache.uima.fit.factory.AnalysisEngineFactory;
-import org.apache.uima.fit.factory.CollectionReaderFactory;
-import org.apache.uima.fit.pipeline.SimplePipeline;
-import org.apache.uima.fit.util.JCasUtil;
-import org.apache.uima.jcas.JCas;
-import org.apache.uima.jcas.cas.DoubleArray;
-import xxx.web.comments.pipeline.ArktweetTokenizerFixed;
-import xxx.web.comments.pipeline.FullDebateContentReader;
 
 import java.io.File;
-import java.io.FileOutputStream;
-import java.io.IOException;
-import java.io.ObjectOutputStream;
-import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -49,8 +29,9 @@ import java.util.Map;
  *
  * @author XXX
  */
+@Deprecated // TODO delete
 public class DebateTopicExtractorMain
-        extends JCasConsumer_ImplBase
+//        extends JCasConsumer_ImplBase
 {
     /**
      * Where the map document/topics will be serialized
@@ -60,7 +41,7 @@ public class DebateTopicExtractorMain
     File outputFile;
 
     private Map<String, List<Double>> debateTopicMap = new HashMap<>();
-
+/*
     @Override
     public void process(JCas aJCas)
             throws AnalysisEngineProcessException
@@ -143,4 +124,5 @@ public class DebateTopicExtractorMain
         );
     }
 
+*/
 }

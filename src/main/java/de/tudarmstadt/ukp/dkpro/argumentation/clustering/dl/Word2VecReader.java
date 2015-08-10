@@ -16,10 +16,10 @@
 
 package de.tudarmstadt.ukp.dkpro.argumentation.clustering.dl;
 
+import de.tudarmstadt.ukp.dkpro.argumentation.clustering.VectorUtils;
 import no.uib.cipr.matrix.DenseVector;
 import no.uib.cipr.matrix.Vector;
 import no.uib.cipr.matrix.Vector.Norm;
-import xxx.web.comments.clustering.VectorUtils;
 
 import java.io.File;
 import java.io.IOException;

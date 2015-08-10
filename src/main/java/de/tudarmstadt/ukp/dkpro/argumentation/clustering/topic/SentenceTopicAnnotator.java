@@ -26,6 +26,7 @@ import org.apache.uima.jcas.JCas;
  *
  * @author XXX
  */
+@Deprecated // TODO delete
 public class SentenceTopicAnnotator
         extends AbstractTopicAnnotator
 {

@@ -16,6 +16,8 @@
 
 package de.tudarmstadt.ukp.dkpro.argumentation.clustering;
 
+import de.tudarmstadt.ukp.dkpro.argumentation.clustering.dl.Embedding;
+import de.tudarmstadt.ukp.dkpro.argumentation.clustering.dl.Word2VecReader;
 import de.tudarmstadt.ukp.dkpro.core.api.segmentation.type.Token;
 import org.apache.commons.io.IOUtils;
 import org.apache.uima.analysis_engine.AnalysisEngineProcessException;
@@ -23,8 +25,6 @@ import org.apache.uima.fit.component.JCasAnnotator_ImplBase;
 import org.apache.uima.fit.descriptor.ConfigurationParameter;
 import org.apache.uima.fit.util.JCasUtil;
 import org.apache.uima.jcas.JCas;
-import xxx.web.comments.clustering.dl.Embedding;
-import xxx.web.comments.clustering.dl.Word2VecReader;
 
 import java.io.File;
 import java.io.FileOutputStream;
