@@ -16,28 +16,13 @@
 
 package de.tudarmstadt.ukp.dkpro.argumentation.clustering.debatefiltering;
 
-import com.beust.jcommander.JCommander;
-import com.beust.jcommander.Parameter;
-import com.beust.jcommander.ParameterException;
-import de.tudarmstadt.ukp.dkpro.core.io.xmi.XmiReader;
-import de.tudarmstadt.ukp.dkpro.core.stanfordnlp.StanfordLemmatizer;
-import de.tudarmstadt.ukp.dkpro.core.stanfordnlp.StanfordSegmenter;
-import de.tudarmstadt.ukp.dkpro.core.tokit.ParagraphSplitter;
-import org.apache.uima.fit.factory.AnalysisEngineFactory;
-import org.apache.uima.fit.factory.CollectionReaderFactory;
-import org.apache.uima.fit.pipeline.SimplePipeline;
-import xxx.web.comments.clustering.topic.DocumentTopicAnnotator;
-import xxx.web.comments.pipeline.ArktweetTokenizerFixed;
-import xxx.web.comments.pipeline.FullDebateContentReader;
-import xxx.web.comments.pipeline.SentenceOverlapSanityCheck;
-
 /**
  * (c) 2015 XXX
  */
 @Deprecated // doesn't work
 public class DebateFilterByTopicSimilarity
 {
-
+/*
     @Parameter(names = { "--ud", "--unlabeledDocumentsDir" },
             description = "Unlabeled documents (from CL)", required = true)
     String unlabeledDocumentsDir;
@@ -130,13 +115,12 @@ public class DebateFilterByTopicSimilarity
             throw ex;
         }
 
-        /*
-        Two documents are empty: 4636, 4657 (grep "sofaString=\"\"" *) - delete them manually
-        in advance
-         */
+        // Two documents are empty: 4636, 4657 (grep "sofaString=\"\"" *) - delete them manually
+        // in advance
         // create domain/topic vectors
         //        filter.createDomainTopicVectors();
 
         filter.rankDebates();
     }
+    */
 }
