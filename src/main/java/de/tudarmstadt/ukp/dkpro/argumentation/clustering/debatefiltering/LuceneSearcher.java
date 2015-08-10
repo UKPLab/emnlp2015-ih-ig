@@ -21,9 +21,8 @@ import com.beust.jcommander.Parameter;
 import com.beust.jcommander.ParameterException;
 import org.apache.commons.io.FileUtils;
 import org.apache.lucene.analysis.Analyzer;
-import org.apache.lucene.analysis.standard.StandardAnalyzer;
+import org.apache.lucene.analysis.snowball.SnowballAnalyzer;
 import org.apache.lucene.document.Document;
-import org.apache.lucene.queryParser.QueryParser;
 import org.apache.lucene.search.IndexSearcher;
 import org.apache.lucene.search.Query;
 import org.apache.lucene.search.ScoreDoc;
@@ -94,7 +93,7 @@ public class LuceneSearcher
             throws Exception
     {
         // Now search the index:
-        Analyzer analyzer = new StandardAnalyzer(Version.LUCENE_30);
+        Analyzer analyzer = StandardAnalyzer(Version.LUCENE_30);
 
         Directory directory = FSDirectory.open(luceneIndexDir);
         IndexSearcher indexSearcher = new IndexSearcher(directory, true);
