@@ -16,6 +16,7 @@
 
 package de.tudarmstadt.ukp.dkpro.argumentation.clustering.debatefiltering;
 
+import de.tudarmstadt.ukp.dkpro.argumentation.comments.pipeline.FullDebateContentReader;
 import de.tudarmstadt.ukp.dkpro.core.api.metadata.type.DocumentMetaData;
 import org.apache.lucene.analysis.Analyzer;
 import org.apache.lucene.analysis.standard.StandardAnalyzer;
@@ -34,7 +35,6 @@ import org.apache.uima.fit.factory.CollectionReaderFactory;
 import org.apache.uima.fit.pipeline.SimplePipeline;
 import org.apache.uima.jcas.JCas;
 import org.apache.uima.resource.ResourceInitializationException;
-import xxx.web.comments.pipeline.FullDebateContentReader;
 
 import java.io.File;
 import java.io.IOException;

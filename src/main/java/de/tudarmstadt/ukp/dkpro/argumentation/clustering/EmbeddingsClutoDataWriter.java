@@ -16,6 +16,8 @@
 
 package de.tudarmstadt.ukp.dkpro.argumentation.clustering;
 
+import de.tudarmstadt.ukp.dkpro.argumentation.clustering.embeddings.EmbeddingsAnnotator;
+import de.tudarmstadt.ukp.dkpro.argumentation.type.Embeddings;
 import org.apache.commons.io.FileUtils;
 import org.apache.commons.io.IOUtils;
 import org.apache.uima.UimaContext;
@@ -26,8 +28,6 @@ import org.apache.uima.fit.util.JCasUtil;
 import org.apache.uima.jcas.JCas;
 import org.apache.uima.jcas.cas.DoubleArray;
 import org.apache.uima.resource.ResourceInitializationException;
-import xxx.web.comments.clustering.embeddings.EmbeddingsAnnotator;
-import xxx.web.comments.type.Embeddings;
 
 import java.io.File;
 import java.io.FileInputStream;

@@ -17,10 +17,10 @@
 package de.tudarmstadt.ukp.dkpro.argumentation.sequence.feature.deeplearning;
 
 import de.tudarmstadt.ukp.dkpro.argumentation.sequence.feature.AbstractUnitSentenceFeatureGenerator;
+import de.tudarmstadt.ukp.dkpro.argumentation.type.Embeddings;
 import de.tudarmstadt.ukp.dkpro.core.api.segmentation.type.Sentence;
 import de.tudarmstadt.ukp.dkpro.tc.api.exception.TextClassificationException;
 import de.tudarmstadt.ukp.dkpro.tc.api.features.Feature;
-import xxx.web.comments.type.Embeddings;
 import no.uib.cipr.matrix.DenseVector;
 import org.apache.commons.lang.StringUtils;
 import org.apache.uima.fit.util.JCasUtil;

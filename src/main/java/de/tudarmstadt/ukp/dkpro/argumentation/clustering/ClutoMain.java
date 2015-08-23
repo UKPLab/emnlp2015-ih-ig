@@ -16,13 +16,13 @@
 
 package de.tudarmstadt.ukp.dkpro.argumentation.clustering;
 
+import de.tudarmstadt.ukp.dkpro.argumentation.clustering.embeddings.EmbeddingsAnnotator;
 import de.tudarmstadt.ukp.dkpro.core.api.segmentation.type.Token;
 import de.tudarmstadt.ukp.dkpro.core.frequency.tfidf.TfidfAnnotator;
 import de.tudarmstadt.ukp.dkpro.core.io.xmi.XmiReader;
 import org.apache.uima.fit.factory.AnalysisEngineFactory;
 import org.apache.uima.fit.factory.CollectionReaderFactory;
 import org.apache.uima.fit.pipeline.SimplePipeline;
-import xxx.web.comments.clustering.embeddings.EmbeddingsAnnotator;
 
 /**
  * (c) 2015 XXX

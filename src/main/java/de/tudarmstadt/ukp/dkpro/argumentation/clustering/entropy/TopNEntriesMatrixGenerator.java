@@ -16,8 +16,8 @@
 
 package de.tudarmstadt.ukp.dkpro.argumentation.clustering.entropy;
 
+import de.tudarmstadt.ukp.dkpro.argumentation.clustering.VectorUtils;
 import no.uib.cipr.matrix.Vector;
-import xxx.web.comments.clustering.VectorUtils;
 
 import java.util.Map;
 
@@ -33,8 +33,8 @@ public class TopNEntriesMatrixGenerator
     {
         int topNEntries = 5;
 
-        for (Map.Entry<Double, Integer> entry : VectorUtils.largestValues(
-                distanceToClusterCentroidsVector, topNEntries).entrySet()) {
+        for (Map.Entry<Double, Integer> entry : VectorUtils
+                .largestValues(distanceToClusterCentroidsVector, topNEntries).entrySet()) {
             int cluster = entry.getValue();
 
             for (Map.Entry<Double, Integer> entry2 : VectorUtils

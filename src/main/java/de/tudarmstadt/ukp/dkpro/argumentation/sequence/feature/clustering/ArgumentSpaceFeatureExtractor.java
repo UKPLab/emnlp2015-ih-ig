@@ -16,6 +16,9 @@
 
 package de.tudarmstadt.ukp.dkpro.argumentation.sequence.feature.clustering;
 
+import de.tudarmstadt.ukp.dkpro.argumentation.clustering.ClusteringUtils;
+import de.tudarmstadt.ukp.dkpro.argumentation.sequence.feature.AbstractUnitSentenceFeatureGenerator;
+import de.tudarmstadt.ukp.dkpro.argumentation.type.Embeddings;
 import de.tudarmstadt.ukp.dkpro.core.api.resources.ResourceUtils;
 import de.tudarmstadt.ukp.dkpro.core.api.segmentation.type.Sentence;
 import de.tudarmstadt.ukp.dkpro.tc.api.exception.TextClassificationException;
@@ -29,9 +32,6 @@ import org.apache.uima.fit.util.JCasUtil;
 import org.apache.uima.jcas.JCas;
 import org.apache.uima.resource.ResourceInitializationException;
 import org.apache.uima.resource.ResourceSpecifier;
-import de.tudarmstadt.ukp.dkpro.argumentation.sequence.feature.AbstractUnitSentenceFeatureGenerator;
-import xxx.web.comments.clustering.ClusteringUtils;
-import xxx.web.comments.type.Embeddings;
 
 import java.io.*;
 import java.net.URL;

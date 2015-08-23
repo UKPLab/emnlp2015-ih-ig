@@ -16,6 +16,10 @@
 
 package de.tudarmstadt.ukp.dkpro.argumentation.clustering.embeddings;
 
+import de.tudarmstadt.ukp.dkpro.argumentation.clustering.EmbeddingsCachePreprocessor;
+import de.tudarmstadt.ukp.dkpro.argumentation.clustering.dl.Embedding;
+import de.tudarmstadt.ukp.dkpro.argumentation.clustering.dl.Word2VecReader;
+import de.tudarmstadt.ukp.dkpro.argumentation.type.Embeddings;
 import de.tudarmstadt.ukp.dkpro.core.api.frequency.tfidf.type.Tfidf;
 import de.tudarmstadt.ukp.dkpro.core.api.segmentation.type.Sentence;
 import de.tudarmstadt.ukp.dkpro.core.api.segmentation.type.Token;
@@ -31,10 +35,6 @@ import org.apache.uima.jcas.JCas;
 import org.apache.uima.jcas.cas.DoubleArray;
 import org.apache.uima.jcas.tcas.Annotation;
 import org.apache.uima.resource.ResourceInitializationException;
-import xxx.web.comments.clustering.EmbeddingsCachePreprocessor;
-import xxx.web.comments.clustering.dl.Embedding;
-import xxx.web.comments.clustering.dl.Word2VecReader;
-import xxx.web.comments.type.Embeddings;
 
 import java.io.*;
 import java.net.URL;

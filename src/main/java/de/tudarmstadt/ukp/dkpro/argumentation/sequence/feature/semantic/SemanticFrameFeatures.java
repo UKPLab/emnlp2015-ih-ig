@@ -23,11 +23,11 @@ import de.tudarmstadt.ukp.dkpro.core.api.semantics.type.SemanticArgument;
 import de.tudarmstadt.ukp.dkpro.core.api.semantics.type.SemanticPredicate;
 import de.tudarmstadt.ukp.dkpro.tc.api.exception.TextClassificationException;
 import de.tudarmstadt.ukp.dkpro.tc.api.features.Feature;
+import org.apache.uima.fit.util.JCasUtil;
 import org.apache.uima.jcas.JCas;
 
 import java.util.*;
 
-import static org.apache.uima.fit.util.JCasUtil.select;
 import static org.apache.uima.fit.util.JCasUtil.selectCovered;
 
 /**
@@ -54,8 +54,8 @@ public class SemanticFrameFeatures
             String discourseMarker = null;
             SortedMap<String, String> arguments = new TreeMap<>();
 
-            for (SemanticArgument arg : select(semanticPredicate.getArguments(),
-                    SemanticArgument.class)) {
+            for (SemanticArgument arg : JCasUtil
+                    .select(semanticPredicate.getArguments(), SemanticArgument.class)) {
                 String argRole = arg.getRole();
                 String argText = arg.getCoveredText();
 

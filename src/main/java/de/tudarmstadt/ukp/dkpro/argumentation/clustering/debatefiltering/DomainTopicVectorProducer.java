@@ -16,6 +16,8 @@
 
 package de.tudarmstadt.ukp.dkpro.argumentation.clustering.debatefiltering;
 
+import de.tudarmstadt.ukp.dkpro.argumentation.clustering.VectorUtils;
+import de.tudarmstadt.ukp.dkpro.argumentation.clustering.topic.DocumentTopicAnnotator;
 import de.tudarmstadt.ukp.dkpro.argumentation.types.WebArgumentMetadata;
 import de.tudarmstadt.ukp.dkpro.core.mallet.type.TopicDistribution;
 import no.uib.cipr.matrix.DenseVector;
@@ -26,7 +28,6 @@ import org.apache.uima.fit.component.JCasConsumer_ImplBase;
 import org.apache.uima.fit.descriptor.ConfigurationParameter;
 import org.apache.uima.fit.util.JCasUtil;
 import org.apache.uima.jcas.JCas;
-import xxx.web.comments.clustering.VectorUtils;
 
 import java.io.File;
 import java.io.FileOutputStream;
@@ -40,7 +41,7 @@ import java.util.Map;
 /**
  * For each domain (e.g. HS, MS, etc.) creates an average topic vector (and stores into
  * a serialized Map(String, Vector) file). Requires documents annotated by
- * {@link xxx.web.comments.clustering.topic.DocumentTopicAnnotator}
+ * {@link DocumentTopicAnnotator}
  * <p/>
  * (c) 2015 XXX
  */

@@ -16,6 +16,10 @@
 
 package de.tudarmstadt.ukp.dkpro.argumentation.clustering.entropy;
 
+import de.tudarmstadt.ukp.dkpro.argumentation.clustering.ClusterCentroidsMain;
+import de.tudarmstadt.ukp.dkpro.argumentation.clustering.ClusteringUtils;
+import de.tudarmstadt.ukp.dkpro.argumentation.clustering.VectorUtils;
+import de.tudarmstadt.ukp.dkpro.argumentation.type.Embeddings;
 import no.uib.cipr.matrix.DenseVector;
 import no.uib.cipr.matrix.Vector;
 import org.apache.commons.io.IOUtils;
@@ -26,10 +30,6 @@ import org.apache.uima.fit.descriptor.ConfigurationParameter;
 import org.apache.uima.fit.util.JCasUtil;
 import org.apache.uima.jcas.JCas;
 import org.apache.uima.resource.ResourceInitializationException;
-import xxx.web.comments.clustering.ClusterCentroidsMain;
-import xxx.web.comments.clustering.ClusteringUtils;
-import xxx.web.comments.clustering.VectorUtils;
-import xxx.web.comments.type.Embeddings;
 
 import java.io.*;
 import java.util.Locale;

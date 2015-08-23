@@ -16,8 +16,8 @@
 
 package de.tudarmstadt.ukp.dkpro.argumentation.sequence.feature.coreference;
 
-import de.tudarmstadt.ukp.dkpro.argumentation.sequence.io.ArgumentSequenceSentenceLevelReader;
 import de.tudarmstadt.ukp.dkpro.argumentation.sequence.feature.AbstractUnitSentenceFeatureGenerator;
+import de.tudarmstadt.ukp.dkpro.argumentation.sequence.io.ArgumentSequenceSentenceLevelReader;
 import de.tudarmstadt.ukp.dkpro.core.api.coref.type.CoreferenceChain;
 import de.tudarmstadt.ukp.dkpro.core.api.coref.type.CoreferenceLink;
 import de.tudarmstadt.ukp.dkpro.core.api.frequency.util.FrequencyDistribution;

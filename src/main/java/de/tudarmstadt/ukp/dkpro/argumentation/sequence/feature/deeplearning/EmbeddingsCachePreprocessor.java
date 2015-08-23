@@ -16,10 +16,10 @@
 
 package de.tudarmstadt.ukp.dkpro.argumentation.sequence.feature.deeplearning;
 
+import de.tudarmstadt.ukp.dkpro.argumentation.clustering.dl.Embedding;
+import de.tudarmstadt.ukp.dkpro.argumentation.clustering.dl.Word2VecReader;
 import de.tudarmstadt.ukp.dkpro.core.api.segmentation.type.Token;
 import de.tudarmstadt.ukp.dkpro.core.io.xmi.XmiReader;
-import xxx.web.comments.clustering.dl.Embedding;
-import xxx.web.comments.clustering.dl.Word2VecReader;
 import no.uib.cipr.matrix.Vector;
 import org.apache.commons.io.IOUtils;
 import org.apache.uima.analysis_engine.AnalysisEngineProcessException;

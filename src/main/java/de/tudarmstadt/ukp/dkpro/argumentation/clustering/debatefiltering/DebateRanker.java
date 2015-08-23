@@ -16,6 +16,7 @@
 
 package de.tudarmstadt.ukp.dkpro.argumentation.clustering.debatefiltering;
 
+import de.tudarmstadt.ukp.dkpro.argumentation.clustering.VectorUtils;
 import de.tudarmstadt.ukp.dkpro.core.api.metadata.type.DocumentMetaData;
 import de.tudarmstadt.ukp.dkpro.core.mallet.type.TopicDistribution;
 import no.uib.cipr.matrix.DenseVector;
@@ -28,7 +29,6 @@ import org.apache.uima.fit.descriptor.ConfigurationParameter;
 import org.apache.uima.fit.util.JCasUtil;
 import org.apache.uima.jcas.JCas;
 import org.apache.uima.resource.ResourceInitializationException;
-import xxx.web.comments.clustering.VectorUtils;
 
 import java.io.File;
 import java.io.FileInputStream;
