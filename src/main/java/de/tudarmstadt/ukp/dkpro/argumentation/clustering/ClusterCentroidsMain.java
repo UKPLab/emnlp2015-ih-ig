@@ -1,5 +1,7 @@
 /*
- * Copyright 2015 XXX
+ * Copyright 2015
+ * Ubiquitous Knowledge Processing (UKP) Lab
+ * Technische Universität Darmstadt
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -27,7 +29,7 @@ import java.util.Map;
 import java.util.TreeMap;
 
 /**
- * (c) 2015 XXX
+ * @author Ivan Habernal
  */
 public class ClusterCentroidsMain
 {

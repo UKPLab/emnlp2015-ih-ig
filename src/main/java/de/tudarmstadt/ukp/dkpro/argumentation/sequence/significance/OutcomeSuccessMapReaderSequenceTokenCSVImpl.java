@@ -1,5 +1,7 @@
 /*
- * Copyright 2015 XXX
+ * Copyright 2015
+ * Ubiquitous Knowledge Processing (UKP) Lab
+ * Technische Universität Darmstadt
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -28,7 +30,7 @@ import java.util.TreeMap;
  * Reads CVS file from sequence labeling (in SVM HMM). Key is tokenPosition_token to ensure
  * that two sequences match later.
  *
- * @author XXX
+ * @author Ivan Habernal
  */
 public class OutcomeSuccessMapReaderSequenceTokenCSVImpl
         implements OutcomeSuccessMapReader

@@ -1,5 +1,7 @@
 /*
- * Copyright 2015 XXX
+ * Copyright 2015
+ * Ubiquitous Knowledge Processing (UKP) Lab
+ * Technische Universität Darmstadt
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -27,7 +29,7 @@ import java.util.Map;
  * Estimates topic distribution for each debate and serializes the mapping debateUrl/topics to
  * a file
  *
- * @author XXX
+ * @author Ivan Habernal
  */
 @Deprecated // TODO delete
 public class DebateTopicExtractorMain

@@ -1,5 +1,7 @@
 /*
- * Copyright 2015 XXX
+ * Copyright 2015
+ * Ubiquitous Knowledge Processing (UKP) Lab
+ * Technische Universität Darmstadt
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -40,7 +42,7 @@ import java.util.Queue;
 /**
  * Reader for arguments from serialized {@link Debate}s in XML files
  * <p/>
- * (c) 2015 XXX
+ * @author Ivan Habernal
  */
 public class DebateArgumentReader
         extends JCasCollectionReader_ImplBase

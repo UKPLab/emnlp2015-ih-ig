@@ -1,5 +1,7 @@
 /*
- * Copyright 2015 XXX
+ * Copyright 2015
+ * Ubiquitous Knowledge Processing (UKP) Lab
+ * Technische Universität Darmstadt
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -21,8 +23,11 @@ import com.beust.jcommander.Parameter;
 import com.beust.jcommander.ParameterException;
 import org.apache.commons.io.FileUtils;
 import org.apache.lucene.analysis.Analyzer;
-import org.apache.lucene.analysis.snowball.SnowballAnalyzer;
+import org.apache.lucene.analysis.standard.StandardAnalyzer;
 import org.apache.lucene.document.Document;
+import org.apache.lucene.index.DirectoryReader;
+import org.apache.lucene.index.IndexReader;
+import org.apache.lucene.queryparser.classic.QueryParser;
 import org.apache.lucene.search.IndexSearcher;
 import org.apache.lucene.search.Query;
 import org.apache.lucene.search.ScoreDoc;
@@ -35,7 +40,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
- * (c) 2015 XXX
+ * @author Ivan Habernal
  */
 public class LuceneSearcher
 {
@@ -93,13 +98,15 @@ public class LuceneSearcher
             throws Exception
     {
         // Now search the index:
-        Analyzer analyzer = StandardAnalyzer(Version.LUCENE_30);
+        Analyzer analyzer = new StandardAnalyzer(Version.LUCENE_44);
 
         Directory directory = FSDirectory.open(luceneIndexDir);
-        IndexSearcher indexSearcher = new IndexSearcher(directory, true);
+        IndexReader reader = DirectoryReader.open(directory);
+
+        IndexSearcher indexSearcher = new IndexSearcher(reader);
 
         // Parse a simple query
-        QueryParser parser = new QueryParser(Version.LUCENE_30, LuceneIndexer.FIELD_TEXT_CONTENT,
+        QueryParser parser = new QueryParser(Version.LUCENE_44, LuceneIndexer.FIELD_TEXT_CONTENT,
                 analyzer);
         Query query = parser.parse(textQuery);
 
@@ -114,7 +121,7 @@ public class LuceneSearcher
             //            System.out.println(hitDoc.toString());
             //                assertEquals("This is the text to be indexed.", hitDoc.get("fieldname"));
         }
-        indexSearcher.close();
+        reader.close();
         directory.close();
 
         return result;

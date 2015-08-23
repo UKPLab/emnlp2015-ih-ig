@@ -1,5 +1,7 @@
 /*
- * Copyright 2015 XXX
+ * Copyright 2015
+ * Ubiquitous Knowledge Processing (UKP) Lab
+ * Technische Universität Darmstadt
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -22,7 +24,9 @@ import org.apache.lucene.analysis.Analyzer;
 import org.apache.lucene.analysis.standard.StandardAnalyzer;
 import org.apache.lucene.document.Document;
 import org.apache.lucene.document.Field;
+import org.apache.lucene.document.TextField;
 import org.apache.lucene.index.IndexWriter;
+import org.apache.lucene.index.IndexWriterConfig;
 import org.apache.lucene.store.Directory;
 import org.apache.lucene.store.FSDirectory;
 import org.apache.lucene.util.Version;
@@ -39,8 +43,10 @@ import org.apache.uima.resource.ResourceInitializationException;
 import java.io.File;
 import java.io.IOException;
 
+//import org.apache.lucene.analysis.standard.StandardAnalyzer;
+
 /**
- * (c) 2015 XXX
+ * @author Ivan Habernal
  */
 public class LuceneIndexer
         extends JCasConsumer_ImplBase
@@ -63,11 +69,14 @@ public class LuceneIndexer
         super.initialize(context);
 
         try {
-            Analyzer analyzer = new StandardAnalyzer(Version.LUCENE_30);
+            Analyzer analyzer = new StandardAnalyzer(Version.LUCENE_44);
             directory = FSDirectory.open(luceneIndexDir);
+            IndexWriterConfig iwc = new IndexWriterConfig(Version.LUCENE_44, analyzer);
 
-            iwriter = new IndexWriter(directory, analyzer, true,
-                    new IndexWriter.MaxFieldLength(50000));
+            // Add new documents to an existing index:
+            iwc.setOpenMode(IndexWriterConfig.OpenMode.CREATE);
+
+            iwriter = new IndexWriter(directory, iwc);
         }
         catch (IOException e) {
             e.printStackTrace();
@@ -81,14 +90,13 @@ public class LuceneIndexer
         Document doc = new Document();
 
         // index text
-        doc.add(new Field(FIELD_TEXT_CONTENT, aJCas.getDocumentText(), Field.Store.YES,
-                Field.Index.ANALYZED));
+        doc.add(new TextField(FIELD_TEXT_CONTENT, aJCas.getDocumentText(), Field.Store.YES));
 
         // localize input dir
         String url = DocumentMetaData.get(aJCas).getDocumentId();
         String fileName = url.replaceAll("http://", "").replaceAll("/", "___") + ".xml";
 
-        doc.add(new Field(FIELD_FILE, fileName, Field.Store.YES, Field.Index.NOT_ANALYZED));
+        doc.add(new TextField(FIELD_FILE, fileName, Field.Store.YES));
 
         try {
             iwriter.addDocument(doc);
@@ -117,12 +125,11 @@ public class LuceneIndexer
             throws Exception
     {
         SimplePipeline.runPipeline(CollectionReaderFactory
-                        .createReaderDescription(FullDebateContentReader.class,
-                                FullDebateContentReader.PARAM_SOURCE_LOCATION,
-                                "/home/habi/research/data/debates-xml/"),
-                AnalysisEngineFactory.createEngineDescription(LuceneIndexer.class,
-                        LuceneIndexer.PARAM_LUCENE_INDEX_DIR, "/tmp/lucene"));
-
+                .createReaderDescription(FullDebateContentReader.class,
+                        FullDebateContentReader.PARAM_SOURCE_LOCATION,
+                        "/home/habi/research/data/debates-xml/"), AnalysisEngineFactory
+                .createEngineDescription(LuceneIndexer.class, LuceneIndexer.PARAM_LUCENE_INDEX_DIR,
+                        "/tmp/lucene"));
 
     }
 }

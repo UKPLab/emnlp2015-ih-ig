@@ -1,5 +1,7 @@
 /*
- * Copyright 2015 XXX
+ * Copyright 2015
+ * Ubiquitous Knowledge Processing (UKP) Lab
+ * Technische Universität Darmstadt
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -28,7 +30,7 @@ import org.apache.uima.fit.component.CasAnnotator_ImplBase;
 import java.util.List;
 
 /**
- * @author XXX
+ * @author Ivan Habernal
  */
 public class ArktweetTokenizerFixed
         extends CasAnnotator_ImplBase

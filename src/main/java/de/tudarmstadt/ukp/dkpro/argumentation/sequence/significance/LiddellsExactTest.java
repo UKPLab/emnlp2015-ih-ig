@@ -1,5 +1,7 @@
 /*
- * Copyright 2015 XXX
+ * Copyright 2015
+ * Ubiquitous Knowledge Processing (UKP) Lab
+ * Technische Universität Darmstadt
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -31,7 +33,7 @@ import org.apache.commons.math3.special.Beta;
  * <p/>
  * {@code http://commons.apache.org/proper/commons-math/apidocs/org/apache/commons/math3/special/Beta.html#regularizedBeta%28double,%20double,%20double%29}
  *
- * @author XXX
+ * @author Ivan Habernal
  */
 public class LiddellsExactTest
 {
