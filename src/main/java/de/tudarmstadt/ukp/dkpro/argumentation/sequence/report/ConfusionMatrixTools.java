@@ -39,8 +39,7 @@ public class ConfusionMatrixTools
     private static final String GLUE = "\t";
 
     public static ConfusionMatrix tokenLevelPredictionsToConfusionMatrix(File predictionsFile)
-            throws
-            IOException
+            throws IOException
     {
         ConfusionMatrix cm = new ConfusionMatrix();
 
@@ -109,9 +108,7 @@ public class ConfusionMatrixTools
             throws IOException
     {
         String path = args[0];
-        for (File file : FileUtils.listFiles(new File(
-                        path),
-                new String[] { "csv" }, true)) {
+        for (File file : FileUtils.listFiles(new File(path), new String[] { "csv" }, true)) {
             if (file.getName().startsWith("tokenLevelPredictions")) {
                 generateNiceTable(file);
             }

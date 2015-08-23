@@ -46,8 +46,8 @@ public class TestSignificanceTwoFiles
             updateContingencyTable(res1, res2, contingencyTable);
         }
 
-//        System.out.println("Cont. table:\n" + Arrays.toString(contingencyTable[0]) + "\n" +
-//                Arrays.toString(contingencyTable[1]));
+        //        System.out.println("Cont. table:\n" + Arrays.toString(contingencyTable[0]) + "\n" +
+        //                Arrays.toString(contingencyTable[1]));
 
         return LiddellsExactTest.pValue(contingencyTable[0][1], contingencyTable[1][0]);
     }

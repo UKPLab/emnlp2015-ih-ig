@@ -102,11 +102,8 @@ public class LemmaLuceneNGramMetaCollector
                                 + DocumentMetaData.get(jcas).getDocumentUri());
             }
             currentDocument = new Document();
-            currentDocument.add(new StringField(
-                    LUCENE_ID_FIELD,
-                    currentDocumentId,
-                    Field.Store.YES
-            ));
+            currentDocument
+                    .add(new StringField(LUCENE_ID_FIELD, currentDocumentId, Field.Store.YES));
         }
     }
 
@@ -148,11 +145,7 @@ public class LemmaLuceneNGramMetaCollector
                     + "Probably a lucene-based meta collector that calls addField() before initializeDocument()"));
         }
 
-        Field field = new Field(
-                fieldName,
-                value,
-                fieldType
-        );
+        Field field = new Field(fieldName, value, fieldType);
         currentDocument.add(field);
     }
 

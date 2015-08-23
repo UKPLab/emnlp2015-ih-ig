@@ -37,13 +37,12 @@ public class OrigTokenSequenceMetaDataFeatureGenerator
     public static final String FEATURE_NAME = SVMHMMDataWriter.META_DATA_FEATURE_PREFIX
             + OrigTokenSequenceMetaDataFeatureGenerator.class.getSimpleName();
 
-    @Override protected List<String> extractSequence(JCas jCas,
-            TextClassificationUnit classificationUnit)
+    @Override
+    protected List<String> extractSequence(JCas jCas, TextClassificationUnit classificationUnit)
     {
         List<String> result = new ArrayList<>();
 
-        List<Token> tokens = JCasUtil.selectCovered(jCas, Token.class,
-                classificationUnit);
+        List<Token> tokens = JCasUtil.selectCovered(jCas, Token.class, classificationUnit);
 
         // create string representation
         for (Token token : tokens) {
@@ -53,7 +52,8 @@ public class OrigTokenSequenceMetaDataFeatureGenerator
         return result;
     }
 
-    @Override protected String getMetaDataFeatureName()
+    @Override
+    protected String getMetaDataFeatureName()
     {
         return FEATURE_NAME;
     }

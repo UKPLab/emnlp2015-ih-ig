@@ -65,9 +65,8 @@ public class ComponentToFileWriter
                     List<Sentence> sentences = JCasUtil2
                             .selectOverlapping(Sentence.class, argumentComponent, aJCas);
 
-                    String filename =
-                            documentId + "_s" + sentences.size() + "_" + argumentComponent
-                                    .getClass().getSimpleName() + "_" + begin + "_" + end + ".txt";
+                    String filename = documentId + "_s" + sentences.size() + "_" + argumentComponent
+                            .getClass().getSimpleName() + "_" + begin + "_" + end + ".txt";
 
                     StringBuilder sb = new StringBuilder();
 

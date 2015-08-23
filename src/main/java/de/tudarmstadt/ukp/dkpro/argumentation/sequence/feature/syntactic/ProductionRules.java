@@ -43,7 +43,8 @@ public class ProductionRules
 
     public static final String FN_PRODUCTION_RULE = "ProductionRule_";
 
-    @Override protected List<Feature> extract(JCas jCas, Sentence sentence, String sentencePrefix)
+    @Override
+    protected List<Feature> extract(JCas jCas, Sentence sentence, String sentencePrefix)
             throws TextClassificationException
     {
         List<Feature> result = new ArrayList<>();

@@ -63,27 +63,27 @@ public class LenientSentenceComponentEvaluation
 
             // get all predicted argument components (just their types)
             SortedSet<String> predictedComponentTypes = new TreeSet<>();
-            for (ArgumentComponent component : ArgumentUtils.removeImplicitComponents(
-                    ArgumentUtils.removeAppealToEmotion(JCasUtil2
-                            .selectOverlapping(ArgumentComponent.class, predictedSentence,
-                                    predicted)))) {
+            for (ArgumentComponent component : ArgumentUtils.removeImplicitComponents(ArgumentUtils
+                            .removeAppealToEmotion(JCasUtil2
+                                    .selectOverlapping(ArgumentComponent.class, predictedSentence,
+                                            predicted)))) {
                 predictedComponentTypes.add(component.getClass().getSimpleName());
             }
 
             // get all gold argument components (their types)
             SortedSet<String> goldComponentTypes = new TreeSet<>();
-            for (ArgumentComponent component : ArgumentUtils.removeImplicitComponents(
-                    ArgumentUtils.removeAppealToEmotion(JCasUtil2
-                            .selectOverlapping(ArgumentComponent.class,
-                                    goldSentence, gold)))) {
+            for (ArgumentComponent component : ArgumentUtils.removeImplicitComponents(ArgumentUtils
+                            .removeAppealToEmotion(JCasUtil2
+                                    .selectOverlapping(ArgumentComponent.class, goldSentence,
+                                            gold)))) {
                 goldComponentTypes.add(component.getClass().getSimpleName());
             }
 
             // remove rebuttal and refutation
-//            goldComponentTypes.remove(Rebuttal.class.getSimpleName());
-//            goldComponentTypes.remove(Refutation.class.getSimpleName());
-//            predictedComponentTypes.remove(Rebuttal.class.getSimpleName());
-//            predictedComponentTypes.remove(Refutation.class.getSimpleName());
+            //            goldComponentTypes.remove(Rebuttal.class.getSimpleName());
+            //            goldComponentTypes.remove(Refutation.class.getSimpleName());
+            //            predictedComponentTypes.remove(Rebuttal.class.getSimpleName());
+            //            predictedComponentTypes.remove(Refutation.class.getSimpleName());
 
             // now evaluate these two set
             // case 1: both are empty, OK
@@ -112,8 +112,8 @@ public class LenientSentenceComponentEvaluation
                     }
 
                     // remove rebuttal and refutation
-//                    predictedComponentTypes.remove(Rebuttal.class.getSimpleName());
-//                    predictedComponentTypes.remove(Refutation.class.getSimpleName());
+                    //                    predictedComponentTypes.remove(Rebuttal.class.getSimpleName());
+                    //                    predictedComponentTypes.remove(Refutation.class.getSimpleName());
                 }
 
                 // now find for each gold if it was also predicted
@@ -209,7 +209,6 @@ public class LenientSentenceComponentEvaluation
                         "fs0_e0_t1/BatchTaskRandomCrossValidation$1ArgumentSequenceLabelingCV-35f96359-b061-11e4-a1e3-bd058334d9a9"),
                 // best system
                 new File(masterFolder,
-                        "fs2fs3fs4_e0_t1/BatchTaskRandomCrossValidation$1ArgumentSequenceLabelingCV-8e7cb0ff-b061-11e4-bab8-19a43cc0fab7")
-        );
+                        "fs2fs3fs4_e0_t1/BatchTaskRandomCrossValidation$1ArgumentSequenceLabelingCV-8e7cb0ff-b061-11e4-bab8-19a43cc0fab7"));
     }
 }

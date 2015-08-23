@@ -28,6 +28,7 @@ import org.apache.uima.fit.pipeline.SimplePipeline;
 
 /**
  * Collects tfidf
+ *
  * @author Ivan Habernal
  */
 public class TfIdfAnnotatorMain
@@ -50,15 +51,14 @@ public class TfIdfAnnotatorMain
             throws Exception
     {
         SimplePipeline.runPipeline(CollectionReaderFactory
-                        .createReaderDescription(XmiReader.class, XmiReader.PARAM_SOURCE_LOCATION,
-                                sourceDataDir, XmiReader.PARAM_PATTERNS,
-                                XmiReader.INCLUDE_PREFIX + "*.xmi"), AnalysisEngineFactory
-                        .createEngineDescription(TfidfAnnotator.class,
-                                TfidfAnnotator.PARAM_FEATURE_PATH, Token.class.getName(),
-                                TfidfAnnotator.PARAM_TF_MODE,
-                                TfidfAnnotator.WeightingModeTf.LOG_PLUS_ONE,
-                                TfidfAnnotator.PARAM_IDF_MODE, TfidfAnnotator.WeightingModeIdf.LOG,
-                                TfidfAnnotator.PARAM_TFDF_PATH, tfidfModel));
+                .createReaderDescription(XmiReader.class, XmiReader.PARAM_SOURCE_LOCATION,
+                        sourceDataDir, XmiReader.PARAM_PATTERNS,
+                        XmiReader.INCLUDE_PREFIX + "*.xmi"), AnalysisEngineFactory
+                .createEngineDescription(TfidfAnnotator.class, TfidfAnnotator.PARAM_FEATURE_PATH,
+                        Token.class.getName(), TfidfAnnotator.PARAM_TF_MODE,
+                        TfidfAnnotator.WeightingModeTf.LOG_PLUS_ONE, TfidfAnnotator.PARAM_IDF_MODE,
+                        TfidfAnnotator.WeightingModeIdf.LOG, TfidfAnnotator.PARAM_TFDF_PATH,
+                        tfidfModel));
     }
 
     public static void main(String[] args)

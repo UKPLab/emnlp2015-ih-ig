@@ -17,22 +17,22 @@
   ~ limitations under the License.
   -->
 <typeSystemDescription xmlns="http://uima.apache.org/resourceSpecifier">
-	<name>EmbeddingsAnnotation</name>
-	<description>Type system for annotating embeddings vectors</description>
-	<version>1.0</version>
-	<vendor>(c) 2015 UKP</vendor>
-	<types>
-		<typeDescription>
-			<name>de.tudarmstadt.ukp.dkpro.argumentation.type.Embeddings</name>
-			<description/>
-			<supertypeName>uima.tcas.Annotation</supertypeName>
-			<features>
-				<featureDescription>
-					<name>vector</name>
-					<description>Vector in embeddings space</description>
-					<rangeTypeName>uima.cas.DoubleArray</rangeTypeName>
-				</featureDescription>
-			</features>
-		</typeDescription>
-	</types>
+    <name>EmbeddingsAnnotation</name>
+    <description>Type system for annotating embeddings vectors</description>
+    <version>1.0</version>
+    <vendor>(c) 2015 UKP</vendor>
+    <types>
+        <typeDescription>
+            <name>de.tudarmstadt.ukp.dkpro.argumentation.type.Embeddings</name>
+            <description/>
+            <supertypeName>uima.tcas.Annotation</supertypeName>
+            <features>
+                <featureDescription>
+                    <name>vector</name>
+                    <description>Vector in embeddings space</description>
+                    <rangeTypeName>uima.cas.DoubleArray</rangeTypeName>
+                </featureDescription>
+            </features>
+        </typeDescription>
+    </types>
 </typeSystemDescription>

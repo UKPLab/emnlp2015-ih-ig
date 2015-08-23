@@ -54,9 +54,9 @@ public class RSTFeaturesExtractor
         RSTTreeNode node = findRSTTreeNodeSpanningOverSentence(sentence);
         System.out.println(node != null ? node.getClass() : "null");
 
-//        for (RSTTreeNode node : rstTreeNodes) {
-//            System.out.println(node);
-//        }
+        //        for (RSTTreeNode node : rstTreeNodes) {
+        //            System.out.println(node);
+        //        }
         System.out.println("----");
 
         return null;
@@ -85,17 +85,19 @@ public class RSTFeaturesExtractor
         return null;
     }
 
-    protected static void wrapRSTTreeNodeToTree(RSTTreeNode rstTreeNode) {
+    protected static void wrapRSTTreeNodeToTree(RSTTreeNode rstTreeNode)
+    {
         DefaultMutableTreeNode root = new DefaultMutableTreeNode(rstTreeNode);
 
         if (rstTreeNode instanceof DiscourseRelation) {
             DiscourseRelation discourseRelation = (DiscourseRelation) rstTreeNode;
 
-
         }
     }
 
-    protected static void wrapRSTTreeNodeToTreeRecursive(RSTTreeNode rstTreeNode, DefaultMutableTreeNode parentNode) {
+    protected static void wrapRSTTreeNodeToTreeRecursive(RSTTreeNode rstTreeNode,
+            DefaultMutableTreeNode parentNode)
+    {
         // add two children nodes
         DefaultMutableTreeNode arg1 = new DefaultMutableTreeNode(rstTreeNode);
 
@@ -104,7 +106,7 @@ public class RSTFeaturesExtractor
             parentNode.add(arg1);
         }
 
-//        XXX
+        //        XXX
 
     }
 

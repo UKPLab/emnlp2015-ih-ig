@@ -53,7 +53,8 @@ public class PlainTextWriter
     @ConfigurationParameter(name = PARAM_OUTPUT_FOLDER, mandatory = true, defaultValue = "-")
     private File outputFolder;
 
-    @Override public void initialize(UimaContext context)
+    @Override
+    public void initialize(UimaContext context)
             throws ResourceInitializationException
     {
         super.initialize(context);
@@ -63,7 +64,8 @@ public class PlainTextWriter
         }
     }
 
-    @Override public void process(JCas aJCas)
+    @Override
+    public void process(JCas aJCas)
             throws AnalysisEngineProcessException
     {
         try {
@@ -98,22 +100,17 @@ public class PlainTextWriter
     {
         String goldDataDir = args[0];
 
-        SimplePipeline.runPipeline(CollectionReaderFactory.createReaderDescription(
-                        XmiReader.class,
-                        XmiReader.PARAM_SOURCE_LOCATION, goldDataDir,
-                        XmiReader.PARAM_PATTERNS, "[+]*.xmi",
-                        XmiReader.PARAM_LENIENT, false
-                ),
-//                AnalysisEngineFactory.createEngineDescription(
-//                        PlainTextWriter.class,
-//                        PlainTextWriter.PARAM_OUTPUT_FOLDER, "/tmp/out"
-//                )
-//                ,
-                AnalysisEngineFactory.createEngineDescription(
-                        ArgumentDumpWriter.class,
+        SimplePipeline.runPipeline(CollectionReaderFactory
+                        .createReaderDescription(XmiReader.class, XmiReader.PARAM_SOURCE_LOCATION,
+                                goldDataDir, XmiReader.PARAM_PATTERNS, "[+]*.xmi",
+                                XmiReader.PARAM_LENIENT, false),
+                //                AnalysisEngineFactory.createEngineDescription(
+                //                        PlainTextWriter.class,
+                //                        PlainTextWriter.PARAM_OUTPUT_FOLDER, "/tmp/out"
+                //                )
+                //                ,
+                AnalysisEngineFactory.createEngineDescription(ArgumentDumpWriter.class,
                         ArgumentDumpWriter.PARAM_OUTPUT_FILE, "/tmp/out.txt",
-                        ArgumentDumpWriter.PARAM_INCLUDE_RELATIONS, false
-                )
-        );
+                        ArgumentDumpWriter.PARAM_INCLUDE_RELATIONS, false));
     }
 }

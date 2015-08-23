@@ -59,8 +59,8 @@ public class DocumentDomainFilter
     public boolean removeFromCollection(JCas jCas)
     {
         // load annotation meta data
-        WebArgumentMetadata webArgumentMetadata = JCasUtil.selectSingle(jCas,
-                WebArgumentMetadata.class);
+        WebArgumentMetadata webArgumentMetadata = JCasUtil
+                .selectSingle(jCas, WebArgumentMetadata.class);
 
         DocumentDomain domain = DocumentDomain.fromString(webArgumentMetadata.getTopic());
 

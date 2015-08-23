@@ -18,12 +18,12 @@
 
 package de.tudarmstadt.ukp.dkpro.argumentation.sequence.feature.syntactic;
 
+import de.tudarmstadt.ukp.dkpro.argumentation.sequence.feature.AbstractUnitSentenceFeatureGenerator;
 import de.tudarmstadt.ukp.dkpro.core.api.segmentation.type.Sentence;
 import de.tudarmstadt.ukp.dkpro.core.api.syntax.type.constituent.*;
 import de.tudarmstadt.ukp.dkpro.tc.api.exception.TextClassificationException;
 import de.tudarmstadt.ukp.dkpro.tc.api.features.Feature;
 import org.apache.uima.jcas.JCas;
-import de.tudarmstadt.ukp.dkpro.argumentation.sequence.feature.AbstractUnitSentenceFeatureGenerator;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -69,7 +69,6 @@ public class SubClausesCount
                     .size() + selectCovered(SQ.class, root).size();
 
         }
-
 
         List<Feature> featList = new ArrayList<>();
         featList.add(new Feature(sentencePrefix + SUBCLAUSES, nbClauses));

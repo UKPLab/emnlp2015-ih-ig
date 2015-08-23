@@ -107,10 +107,8 @@ public class FeatureSetHelper
         result.addAll(getRequiredMetaFeatures());
 
         result.addAll(Arrays.asList(
-                        // FS4
-                        EmbeddingFeatures.class.getName(),
-                        ArgumentSpaceFeatureExtractor.class.getName())
-        );
+                // FS4
+                EmbeddingFeatures.class.getName(), ArgumentSpaceFeatureExtractor.class.getName()));
 
         return result;
     }

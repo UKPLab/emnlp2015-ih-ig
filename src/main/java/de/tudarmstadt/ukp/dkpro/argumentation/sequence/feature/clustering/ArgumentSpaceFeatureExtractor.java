@@ -109,7 +109,6 @@ public class ArgumentSpaceFeatureExtractor
             try {
                 URL url = ResourceUtils.resolveLocation("classpath:/" + value);
 
-
                 stream = url.openStream();
                 ByteArrayOutputStream baos = new ByteArrayOutputStream();
                 IOUtils.copy(stream, baos);
@@ -117,8 +116,7 @@ public class ArgumentSpaceFeatureExtractor
                 ObjectInputStream in = new ObjectInputStream(bais);
 
                 // load centroids
-                this.activeCentroids.put(key,
-                        (TreeMap<Integer, Vector>) in.readObject());
+                this.activeCentroids.put(key, (TreeMap<Integer, Vector>) in.readObject());
             }
             catch (IOException | ClassNotFoundException e) {
                 throw new ResourceInitializationException(e);

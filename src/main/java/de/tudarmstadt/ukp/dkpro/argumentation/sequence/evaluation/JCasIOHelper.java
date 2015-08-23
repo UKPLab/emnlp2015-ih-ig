@@ -36,7 +36,8 @@ public class JCasIOHelper
 {
     public static final FilenameFilter XMI_FILTER = new FilenameFilter()
     {
-        @Override public boolean accept(File dir, String name)
+        @Override
+        public boolean accept(File dir, String name)
         {
             return name.matches("\\d+\\.xmi");
         }

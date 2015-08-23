@@ -214,7 +214,6 @@ public class SequenceAnnotatorFromTokenLevelPredictions
         annotateAllExperimentResults(new File(args[0]), new File(args[1]), args[2]);
     }
 
-
     // /featureSet_params_etc/tokenLevelPredictions.csv
     // /featureSet_params_etc/
     public static void annotateAllExperimentResults(File masterResultFolder,
@@ -223,36 +222,34 @@ public class SequenceAnnotatorFromTokenLevelPredictions
     {
 
         for (File subDir : listSubFolders(masterResultFolder)) {
-//            for (File experiment : listSubFolders(subDir)) {
-                File outputPath = new File(masterOutputFolder,
-                        subDir.getName());
-                outputPath.mkdirs();
+            //            for (File experiment : listSubFolders(subDir)) {
+            File outputPath = new File(masterOutputFolder, subDir.getName());
+            outputPath.mkdirs();
 
-                File predictionsCsv = new File(subDir, "tokenLevelPredictions.csv");
-                if (!predictionsCsv.exists()) {
-                    throw new IllegalArgumentException(
-                            "File not found: " + predictionsCsv.getAbsolutePath());
-                }
+            File predictionsCsv = new File(subDir, "tokenLevelPredictions.csv");
+            if (!predictionsCsv.exists()) {
+                throw new IllegalArgumentException(
+                        "File not found: " + predictionsCsv.getAbsolutePath());
+            }
 
-                System.out.println("Running on file " + predictionsCsv);
+            System.out.println("Running on file " + predictionsCsv);
 
-                SimplePipeline.runPipeline(CollectionReaderFactory
-                                .createReaderDescription(OnlyFilesMatchingPredictionsReader.class,
-                                        OnlyFilesMatchingPredictionsReader.PARAM_SOURCE_LOCATION,
-                                        goldDataPath,
-                                        OnlyFilesMatchingPredictionsReader.PARAM_TOKEN_LEVEL_PREDICTIONS_CSV_FILE,
-                                        predictionsCsv,
-                                        OnlyFilesMatchingPredictionsReader.PARAM_PATTERNS,
-                                        OnlyFilesMatchingPredictionsReader.INCLUDE_PREFIX
-                                                + "*.xmi"), AnalysisEngineFactory
-                                .createEngineDescription(
-                                        SequenceAnnotatorFromTokenLevelPredictions.class,
-                                        SequenceAnnotatorFromTokenLevelPredictions.PARAM_TOKEN_LEVEL_PREDICTIONS_CSV_FILE,
-                                        predictionsCsv),
-                        //                        AnalysisEngineFactory.createEngineDescription(ArgumentDumpWriter.class),
-                        AnalysisEngineFactory.createEngineDescription(XmiWriter.class,
-                                XmiWriter.PARAM_TARGET_LOCATION, outputPath));
-//            }
+            SimplePipeline.runPipeline(CollectionReaderFactory
+                            .createReaderDescription(OnlyFilesMatchingPredictionsReader.class,
+                                    OnlyFilesMatchingPredictionsReader.PARAM_SOURCE_LOCATION,
+                                    goldDataPath,
+                                    OnlyFilesMatchingPredictionsReader.PARAM_TOKEN_LEVEL_PREDICTIONS_CSV_FILE,
+                                    predictionsCsv,
+                                    OnlyFilesMatchingPredictionsReader.PARAM_PATTERNS,
+                                    OnlyFilesMatchingPredictionsReader.INCLUDE_PREFIX + "*.xmi"),
+                    AnalysisEngineFactory.createEngineDescription(
+                            SequenceAnnotatorFromTokenLevelPredictions.class,
+                            SequenceAnnotatorFromTokenLevelPredictions.PARAM_TOKEN_LEVEL_PREDICTIONS_CSV_FILE,
+                            predictionsCsv),
+                    //                        AnalysisEngineFactory.createEngineDescription(ArgumentDumpWriter.class),
+                    AnalysisEngineFactory.createEngineDescription(XmiWriter.class,
+                            XmiWriter.PARAM_TARGET_LOCATION, outputPath));
+            //            }
         }
     }
 

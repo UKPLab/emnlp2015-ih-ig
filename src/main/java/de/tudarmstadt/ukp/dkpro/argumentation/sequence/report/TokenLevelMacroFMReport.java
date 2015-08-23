@@ -57,13 +57,14 @@ public class TokenLevelMacroFMReport
                 .extractMetaDataFeatures(testFile);
 
         // sanity check
-        if (goldLabels.size() != sequenceIDs.size() ||
-                goldLabels.size() != metaDataFeatures.size()) {
+        if (goldLabels.size() != sequenceIDs.size() || goldLabels.size() != metaDataFeatures
+                .size()) {
             throw new IllegalStateException("check consistency");
         }
 
-        File evaluationFile = new File(getContext().getStorageLocation(TEST_TASK_OUTPUT_KEY,
-                StorageService.AccessMode.READWRITE), RESULT_SUMMARY);
+        File evaluationFile = new File(getContext()
+                .getStorageLocation(TEST_TASK_OUTPUT_KEY, StorageService.AccessMode.READWRITE),
+                RESULT_SUMMARY);
 
         // confusion matrix for evaluation
         ConfusionMatrix confusionMatrix = new ConfusionMatrix();
@@ -73,21 +74,21 @@ public class TokenLevelMacroFMReport
 
             // get gold token labels for this sentence
             List<String> goldTokenLabels = AbstractSequenceMetaDataFeatureGenerator
-                    .decodeFromString(metaDataFeatures.get(i).get(
-                            OrigBIOTokenSequenceMetaDataFeatureGenerator.FEATURE_NAME));
+                    .decodeFromString(metaDataFeatures.get(i)
+                            .get(OrigBIOTokenSequenceMetaDataFeatureGenerator.FEATURE_NAME));
             // get tokens for this sentence
-            List<String> tokens = AbstractSequenceMetaDataFeatureGenerator
-                    .decodeFromString(metaDataFeatures.get(i).get(
-                            OrigTokenSequenceMetaDataFeatureGenerator.FEATURE_NAME));
+            List<String> tokens = AbstractSequenceMetaDataFeatureGenerator.decodeFromString(
+                    metaDataFeatures.get(i)
+                            .get(OrigTokenSequenceMetaDataFeatureGenerator.FEATURE_NAME));
             // predicted token labels
-            List<String> recreatedPredictedTokenLabels = ReportTools.recreateTokenLabels(
-                    predictedLabelSentenceLevel, goldTokenLabels.size());
+            List<String> recreatedPredictedTokenLabels = ReportTools
+                    .recreateTokenLabels(predictedLabelSentenceLevel, goldTokenLabels.size());
 
-            if (goldTokenLabels.size() != tokens.size() ||
-                    goldTokenLabels.size() != recreatedPredictedTokenLabels.size()) {
+            if (goldTokenLabels.size() != tokens.size()
+                    || goldTokenLabels.size() != recreatedPredictedTokenLabels.size()) {
                 throw new IllegalStateException(
-                        "Inconsistent size of tokens, gold labels, and predicted labels " +
-                                "recreated from predictions on sentence level");
+                        "Inconsistent size of tokens, gold labels, and predicted labels "
+                                + "recreated from predictions on sentence level");
             }
 
             for (int j = 0; j < goldTokenLabels.size(); j++) {

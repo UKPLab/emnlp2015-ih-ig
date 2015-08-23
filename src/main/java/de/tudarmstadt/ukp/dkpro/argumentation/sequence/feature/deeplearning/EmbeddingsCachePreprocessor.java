@@ -54,17 +54,12 @@ public class EmbeddingsCachePreprocessor
             throws Exception
     {
         CollectionReaderDescription readerDescription = CollectionReaderFactory
-                .createReaderDescription(XmiReader.class,
-                        XmiReader.PARAM_SOURCE_LOCATION,
-                        corpusFilePathTrain,
-                        XmiReader.PARAM_PATTERNS,
-                        XmiReader.INCLUDE_PREFIX + "*.xmi",
-                        XmiReader.PARAM_LENIENT, false);
+                .createReaderDescription(XmiReader.class, XmiReader.PARAM_SOURCE_LOCATION,
+                        corpusFilePathTrain, XmiReader.PARAM_PATTERNS,
+                        XmiReader.INCLUDE_PREFIX + "*.xmi", XmiReader.PARAM_LENIENT, false);
 
         SimplePipeline.runPipeline(readerDescription,
-                AnalysisEngineFactory.createEngineDescription(
-                        EmbeddingsCachePreprocessor.class)
-        );
+                AnalysisEngineFactory.createEngineDescription(EmbeddingsCachePreprocessor.class));
     }
 
     @Override
@@ -79,7 +74,8 @@ public class EmbeddingsCachePreprocessor
         }
     }
 
-    @Override public void collectionProcessComplete()
+    @Override
+    public void collectionProcessComplete()
             throws AnalysisEngineProcessException
     {
         try {
@@ -100,7 +96,8 @@ public class EmbeddingsCachePreprocessor
 
                 if (embedding != null) {
                     cache.put(token, embedding.getVector());
-                } else {
+                }
+                else {
                     cache.put(token, null);
                 }
             }

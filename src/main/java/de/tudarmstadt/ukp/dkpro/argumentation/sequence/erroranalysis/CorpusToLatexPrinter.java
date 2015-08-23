@@ -61,22 +61,24 @@ public class CorpusToLatexPrinter
 
     PrintWriter pw;
 
-    @Override public void initialize(UimaContext context)
+    @Override
+    public void initialize(UimaContext context)
             throws ResourceInitializationException
     {
         super.initialize(context);
 
         File[] files = goldDataDir.listFiles(new FileFilter()
         {
-            @Override public boolean accept(File pathname)
+            @Override
+            public boolean accept(File pathname)
             {
                 return pathname.getName().endsWith(".xmi");
             }
         });
 
         if (files == null || files.length == 0) {
-            throw new ResourceInitializationException(new IOException(
-                    "No xmi files found in " + goldDataDir.getAbsolutePath()));
+            throw new ResourceInitializationException(
+                    new IOException("No xmi files found in " + goldDataDir.getAbsolutePath()));
         }
 
         for (File f : files) {
@@ -100,8 +102,8 @@ public class CorpusToLatexPrinter
         File goldFile = fileMapIdFile.get(documentId);
 
         if (goldFile == null) {
-            throw new AnalysisEngineProcessException(new IOException(
-                    "Cannot locate gold file with id " + documentId));
+            throw new AnalysisEngineProcessException(
+                    new IOException("Cannot locate gold file with id " + documentId));
         }
 
         //        XmiReader
@@ -143,7 +145,8 @@ public class CorpusToLatexPrinter
 
     }
 
-    @Override public void collectionProcessComplete()
+    @Override
+    public void collectionProcessComplete()
             throws AnalysisEngineProcessException
     {
         super.collectionProcessComplete();
@@ -159,15 +162,13 @@ public class CorpusToLatexPrinter
         String autoAnnotatedData = args[1];
         String outputLaTeX = args[2];
 
-        SimplePipeline.runPipeline(
-                CollectionReaderFactory.createReaderDescription(XmiReader.class,
-                        XmiReader.PARAM_SOURCE_LOCATION, autoAnnotatedData,
-                        XmiReader.PARAM_PATTERNS, XmiReader.INCLUDE_PREFIX + "*.xmi"),
-                AnalysisEngineFactory.createEngineDescription(CorpusToLatexPrinter.class,
-                        CorpusToLatexPrinter.PARAM_GOLD_DATA_DIR, goldDataPath,
-                        CorpusToLatexPrinter.PARAM_OUTPUT_FILE, outputLaTeX
-                )
-        );
+        SimplePipeline.runPipeline(CollectionReaderFactory
+                        .createReaderDescription(XmiReader.class, XmiReader.PARAM_SOURCE_LOCATION,
+                                autoAnnotatedData, XmiReader.PARAM_PATTERNS,
+                                XmiReader.INCLUDE_PREFIX + "*.xmi"), AnalysisEngineFactory
+                        .createEngineDescription(CorpusToLatexPrinter.class,
+                                CorpusToLatexPrinter.PARAM_GOLD_DATA_DIR, goldDataPath,
+                                CorpusToLatexPrinter.PARAM_OUTPUT_FILE, outputLaTeX));
     }
 
     /*

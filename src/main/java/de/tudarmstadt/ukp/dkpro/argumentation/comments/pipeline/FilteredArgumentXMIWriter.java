@@ -40,11 +40,12 @@ public class FilteredArgumentXMIWriter
     @ConfigurationParameter(name = PARAM_MINIMUM_ARG_POINTS_REQUIRED, mandatory = false, defaultValue = "-100")
     int minimumArgPointsRequired;
 
-    @Override public void process(JCas aJCas)
+    @Override
+    public void process(JCas aJCas)
             throws AnalysisEngineProcessException
     {
-        DebateArgumentMetaData metaData = JCasUtil.selectSingle(aJCas,
-                DebateArgumentMetaData.class);
+        DebateArgumentMetaData metaData = JCasUtil
+                .selectSingle(aJCas, DebateArgumentMetaData.class);
 
         // filter by minimum points
         if (metaData.getArgPoints() >= this.minimumArgPointsRequired) {

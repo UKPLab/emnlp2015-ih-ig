@@ -38,7 +38,8 @@ public class OrigBIOTokenSequenceMetaDataFeatureGenerator
             + OrigBIOTokenSequenceMetaDataFeatureGenerator.class.getSimpleName();
 
     @Override
-    protected List<String> extractSequence(JCas jCas, TextClassificationUnit classificationUnit) {
+    protected List<String> extractSequence(JCas jCas, TextClassificationUnit classificationUnit)
+    {
         List<String> result = new ArrayList<>();
 
         List<BIOTokenArgumentAnnotation> tokenArgumentAnnotations = JCasUtil

@@ -43,7 +43,8 @@ public class TokenLevelBatchCrossValidationReport // this is the default result 
 
     public static final String RESULT_SUMMARY = "resultSummary.txt";
 
-    @Override public void execute()
+    @Override
+    public void execute()
             throws Exception
     {
         //        super.execute();
@@ -54,8 +55,8 @@ public class TokenLevelBatchCrossValidationReport // this is the default result 
     protected void reportOnlyMacroFM()
             throws IOException
     {
-        File aggregatedCSVFile = new File(
-                getContext().getStorageLocation(Constants.TEST_TASK_OUTPUT_KEY,
+        File aggregatedCSVFile = new File(getContext()
+                .getStorageLocation(Constants.TEST_TASK_OUTPUT_KEY,
                         StorageService.AccessMode.READONLY),
                 TokenLevelEvaluationReport.TOKEN_LEVEL_PREDICTIONS_CSV);
 
@@ -76,14 +77,15 @@ public class TokenLevelBatchCrossValidationReport // this is the default result 
             cm.increaseValue(gold, predicted);
         }
 
-        File evaluationFile = new File(
-                getContext().getStorageLocation(Constants.TEST_TASK_OUTPUT_KEY,
+        File evaluationFile = new File(getContext()
+                .getStorageLocation(Constants.TEST_TASK_OUTPUT_KEY,
                         StorageService.AccessMode.READWRITE), RESULT_SUMMARY);
 
         ReportTools.printFMeasuresToFile(cm, evaluationFile);
     }
 
-    @Override protected Class<? extends ExecutableTaskBase> getTestTaskClass()
+    @Override
+    protected Class<? extends ExecutableTaskBase> getTestTaskClass()
     {
         //        return SVMHMMRandomTestTask.class;
         return SVMHMMTestTask.class;

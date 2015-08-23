@@ -1806,8 +1806,8 @@ public class HeatChart
             int gDistance = g - highValueColour.getGreen();
             int bDistance = b - highValueColour.getBlue();
 
-            if ((Math.abs(rDistance) >= Math.abs(gDistance))
-                    && (Math.abs(rDistance) >= Math.abs(bDistance))) {
+            if ((Math.abs(rDistance) >= Math.abs(gDistance)) && (Math.abs(rDistance) >= Math
+                    .abs(bDistance))) {
                 // Red must be the largest.
                 r = changeColourValue(r, rDistance);
             }

@@ -49,15 +49,15 @@ public class ClutoMain
     public void prepareEmbeddingCache()
             throws Exception
     {
-//        if (!(new File(cacheFile).exists())) {
-            SimplePipeline.runPipeline(CollectionReaderFactory
-                    .createReaderDescription(XmiReader.class, XmiReader.PARAM_SOURCE_LOCATION,
-                            sourceDataDir, XmiReader.PARAM_PATTERNS,
-                            XmiReader.INCLUDE_PREFIX + "*.xmi"), AnalysisEngineFactory
-                    .createEngineDescription(EmbeddingsCachePreprocessor.class,
-                            EmbeddingsCachePreprocessor.PARAM_WORD_2_VEC_FILE, word2VecFile,
-                            EmbeddingsCachePreprocessor.PARAM_CACHE_FILE, cacheFile));
-//        }
+        //        if (!(new File(cacheFile).exists())) {
+        SimplePipeline.runPipeline(CollectionReaderFactory
+                .createReaderDescription(XmiReader.class, XmiReader.PARAM_SOURCE_LOCATION,
+                        sourceDataDir, XmiReader.PARAM_PATTERNS,
+                        XmiReader.INCLUDE_PREFIX + "*.xmi"), AnalysisEngineFactory
+                .createEngineDescription(EmbeddingsCachePreprocessor.class,
+                        EmbeddingsCachePreprocessor.PARAM_WORD_2_VEC_FILE, word2VecFile,
+                        EmbeddingsCachePreprocessor.PARAM_CACHE_FILE, cacheFile));
+        //        }
     }
 
     public void generateClutoMatrix()
@@ -73,13 +73,13 @@ public class ClutoMain
                                 TfidfAnnotator.PARAM_TF_MODE,
                                 TfidfAnnotator.WeightingModeTf.LOG_PLUS_ONE,
                                 TfidfAnnotator.PARAM_IDF_MODE, TfidfAnnotator.WeightingModeIdf.LOG),
-                                AnalysisEngineFactory.createEngineDescription(EmbeddingsAnnotator.class,
-//                AnalysisEngineFactory
-//                        .createEngineDescription(WholeDocumentEmbeddingsAnnotator.class,
-                                EmbeddingsAnnotator.PARAM_WORD_2_VEC_FILE, word2VecFile,
-                                EmbeddingsAnnotator.PARAM_CACHE_FILE, cacheFile,
-                                EmbeddingsAnnotator.PARAM_TO_LOWERCASE, toLowercase,
-                                EmbeddingsAnnotator.PARAM_VECTOR_AVERAGING, averaging),
+                AnalysisEngineFactory.createEngineDescription(EmbeddingsAnnotator.class,
+                        //                AnalysisEngineFactory
+                        //                        .createEngineDescription(WholeDocumentEmbeddingsAnnotator.class,
+                        EmbeddingsAnnotator.PARAM_WORD_2_VEC_FILE, word2VecFile,
+                        EmbeddingsAnnotator.PARAM_CACHE_FILE, cacheFile,
+                        EmbeddingsAnnotator.PARAM_TO_LOWERCASE, toLowercase,
+                        EmbeddingsAnnotator.PARAM_VECTOR_AVERAGING, averaging),
                 AnalysisEngineFactory.createEngineDescription(EmbeddingsClutoDataWriter.class,
                         EmbeddingsClutoDataWriter.PARAM_OUTPUT_FOLDER, clutoMatrixFile));
     }

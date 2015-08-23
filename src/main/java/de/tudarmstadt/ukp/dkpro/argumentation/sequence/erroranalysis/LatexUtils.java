@@ -18,12 +18,12 @@
 
 package de.tudarmstadt.ukp.dkpro.argumentation.sequence.erroranalysis;
 
-import de.tudarmstadt.ukp.dkpro.argumentation.types.*;
+import de.tudarmstadt.ukp.dkpro.argumentation.sequence.writers.ArgumentPrinterUtils;
+import de.tudarmstadt.ukp.dkpro.argumentation.types.ArgumentComponent;
 import de.tudarmstadt.ukp.dkpro.core.api.segmentation.type.Paragraph;
 import de.tudarmstadt.ukp.dkpro.core.api.segmentation.type.Token;
 import org.apache.uima.fit.util.JCasUtil;
 import org.apache.uima.jcas.JCas;
-import de.tudarmstadt.ukp.dkpro.argumentation.sequence.writers.ArgumentPrinterUtils;
 
 import java.io.PrintWriter;
 import java.io.StringWriter;

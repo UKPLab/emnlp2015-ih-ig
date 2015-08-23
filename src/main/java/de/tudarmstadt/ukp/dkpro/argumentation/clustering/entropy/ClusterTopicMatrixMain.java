@@ -49,15 +49,13 @@ public class ClusterTopicMatrixMain
         SimplePipeline.runPipeline(CollectionReaderFactory
                         .createReaderDescription(XmiReader.class, XmiReader.PARAM_SOURCE_LOCATION,
                                 sourceDataDir, XmiReader.PARAM_PATTERNS,
-                                XmiReader.INCLUDE_PREFIX + "*.xmi"),
-                AnalysisEngineFactory.createEngineDescription(TfidfAnnotator.class,
-                        TfidfAnnotator.PARAM_FEATURE_PATH, Token.class.getName(),
-                        TfidfAnnotator.PARAM_TF_MODE,
-                        TfidfAnnotator.WeightingModeTf.LOG_PLUS_ONE,
-                        TfidfAnnotator.PARAM_IDF_MODE, TfidfAnnotator.WeightingModeIdf.LOG,
-                        TfidfAnnotator.PARAM_TFDF_PATH, tfIdfModel
-                ),
-                AnalysisEngineFactory
+                                XmiReader.INCLUDE_PREFIX + "*.xmi"), AnalysisEngineFactory
+                        .createEngineDescription(TfidfAnnotator.class,
+                                TfidfAnnotator.PARAM_FEATURE_PATH, Token.class.getName(),
+                                TfidfAnnotator.PARAM_TF_MODE,
+                                TfidfAnnotator.WeightingModeTf.LOG_PLUS_ONE,
+                                TfidfAnnotator.PARAM_IDF_MODE, TfidfAnnotator.WeightingModeIdf.LOG,
+                                TfidfAnnotator.PARAM_TFDF_PATH, tfIdfModel), AnalysisEngineFactory
                         .createEngineDescription(EmbeddingsAnnotator.class,
                                 EmbeddingsAnnotator.PARAM_WORD_2_VEC_FILE, word2VecFile,
                                 EmbeddingsAnnotator.PARAM_CACHE_FILE, cacheFile),

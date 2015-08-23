@@ -59,8 +59,8 @@ public class PositionInParagraph
         boolean firstSentenceInParagraph = false;
         boolean lastSentenceInParagraph = false;
 
-        Collection<Paragraph> paragraphs = JCasUtil2.selectOverlapping(
-                Paragraph.class, sentence, jCas);
+        Collection<Paragraph> paragraphs = JCasUtil2
+                .selectOverlapping(Paragraph.class, sentence, jCas);
 
         if (paragraphs.isEmpty()) {
             throw new TextClassificationException("No paragraph annotations found");
@@ -72,8 +72,8 @@ public class PositionInParagraph
         }
         else {
             Paragraph paragraph = paragraphs.iterator().next();
-            Collection<Sentence> sentencesInParagraph = JCasUtil.selectCovered(jCas,
-                    Sentence.class, paragraph);
+            Collection<Sentence> sentencesInParagraph = JCasUtil
+                    .selectCovered(jCas, Sentence.class, paragraph);
 
             int sentenceCounter = 1;
             for (Sentence s : sentencesInParagraph) {

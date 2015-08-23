@@ -41,20 +41,19 @@ import java.util.Map;
  */
 public abstract class AbstractUnitSentenceFeatureGenerator
         extends FeatureExtractorResource_ImplBase
-        implements
-        ClassificationUnitFeatureExtractor
+        implements ClassificationUnitFeatureExtractor
 {
 
-//    private static final String MINUS_2_SENT = "minus2Sent";
-//    private static final String MINUS_1_SENT = "minus1Sent";
-//    private static final String PLUS_1_SENT = "plus1Sent";
-//    private static final String PLUS_2_SENT = "plus2Sent";
-//
-//    private static final String MINUS_3_SENT = "minus3Sent";
-//    private static final String MINUS_4_SENT = "minus4Sent";
-//    private static final String PLUS_3_SENT = "plus3Sent";
-//    private static final String PLUS_4_SENT = "plus4Sent";
-//
+    //    private static final String MINUS_2_SENT = "minus2Sent";
+    //    private static final String MINUS_1_SENT = "minus1Sent";
+    //    private static final String PLUS_1_SENT = "plus1Sent";
+    //    private static final String PLUS_2_SENT = "plus2Sent";
+    //
+    //    private static final String MINUS_3_SENT = "minus3Sent";
+    //    private static final String MINUS_4_SENT = "minus4Sent";
+    //    private static final String PLUS_3_SENT = "plus3Sent";
+    //    private static final String PLUS_4_SENT = "plus4Sent";
+    //
     // empirically set to 4
     int contextSize = 4;
 
@@ -108,14 +107,16 @@ public abstract class AbstractUnitSentenceFeatureGenerator
             String precedingContextPrefix = "minus" + (i + 1) + "sent";
             if (precedingSentences.size() > i) {
                 contextSentences.put(precedingContextPrefix, precedingSentences.get(0));
-            } else {
+            }
+            else {
                 contextSentences.put(precedingContextPrefix, null);
             }
 
             String succeedingContextPrefix = "plus" + (i + 1) + "sent";
             if (succeedingSentences.size() > i) {
                 contextSentences.put(succeedingContextPrefix, succeedingSentences.get(0));
-            } else {
+            }
+            else {
                 contextSentences.put(succeedingContextPrefix, null);
             }
         }

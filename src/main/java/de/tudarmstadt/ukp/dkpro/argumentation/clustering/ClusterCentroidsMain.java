@@ -39,22 +39,23 @@ public class ClusterCentroidsMain
     public static void main(String[] args)
             throws Exception
     {
-//        String clutoVectors = args[0];
-//        String clutoOuputClusters = args[1];
-//        String outputClusterCentroids = args[2];
+        //        String clutoVectors = args[0];
+        //        String clutoOuputClusters = args[1];
+        //        String outputClusterCentroids = args[2];
 
         File[] files = new File("//home/user-ukp/data2/debates-ranked.100-xmi")
                 .listFiles(new FilenameFilter()
                 {
-                    @Override public boolean accept(File dir, String name)
+                    @Override
+                    public boolean accept(File dir, String name)
                     {
-//                        return name.startsWith("arg") && name.endsWith(".mat");
+                        //                        return name.startsWith("arg") && name.endsWith(".mat");
                         return name.startsWith("sent") && name.endsWith(".mat");
                     }
                 });
         for (File matFile : files) {
             String clutoVectors = matFile.getAbsolutePath();
-//            String clutoOuputClusters = matFile.getAbsolutePath() + ".clustering.100";
+            //            String clutoOuputClusters = matFile.getAbsolutePath() + ".clustering.100";
             String clutoOuputClusters = matFile.getAbsolutePath() + ".clustering.1000";
             String outputClusterCentroids = matFile.getAbsolutePath() + ".bin";
 

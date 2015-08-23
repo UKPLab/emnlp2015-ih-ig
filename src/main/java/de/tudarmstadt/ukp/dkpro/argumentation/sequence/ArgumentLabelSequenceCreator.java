@@ -48,9 +48,8 @@ public class ArgumentLabelSequenceCreator
         while (iterator.hasNext()) {
             ArgumentComponent argumentComponent = iterator.next();
 
-            if (Boolean.TRUE.toString()
-                    .equals(ArgumentUnitUtils.getProperties(argumentComponent).getProperty(
-                            ArgumentUnitUtils.PROP_KEY_IS_APPEAL_TO_EMOTION))) {
+            if (Boolean.TRUE.toString().equals(ArgumentUnitUtils.getProperties(argumentComponent)
+                    .getProperty(ArgumentUnitUtils.PROP_KEY_IS_APPEAL_TO_EMOTION))) {
                 iterator.remove();
             }
         }
@@ -90,8 +89,8 @@ public class ArgumentLabelSequenceCreator
         else {
             System.err.println(
                     //                throw new IllegalStateException(
-                    "More than one annotation found for particular word!" + token
-                            .getCoveredText() + ", " + covering);
+                    "More than one annotation found for particular word!" + token.getCoveredText()
+                            + ", " + covering);
             String name = covering.iterator().next().getClass().getSimpleName();
             return LABEL_O;
         }

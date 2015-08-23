@@ -43,7 +43,7 @@ public class FinalTableExtractor
         //                extractCDResults(summaryFile, "/tmp/outID.csv");
         //        extractCVResults(summaryFile, "/tmp/outCV.csv");
 
-//        createCrossEvaluationTables(new File(mainFolder), "cd_");
+        //        createCrossEvaluationTables(new File(mainFolder), "cd_");
         createCrossEvaluationTables(new File(mainFolder), "cr_");
         createCrossEvaluationTables(new File(mainFolder), "cr_");
 
@@ -52,9 +52,8 @@ public class FinalTableExtractor
     static final Set<String> ignoredMeasures = new HashSet<>();
 
     static {
-        ignoredMeasures
-                .addAll(Arrays.asList("Rebuttal-B", "Rebuttal-I", "Refutation-B", "Refutation-I",
-                        "Macro-Fm"));
+        ignoredMeasures.addAll(Arrays
+                .asList("Rebuttal-B", "Rebuttal-I", "Refutation-B", "Refutation-I", "Macro-Fm"));
     }
 
     public static void createCrossEvaluationTables(File mainFolder, final String prefix)
@@ -64,7 +63,8 @@ public class FinalTableExtractor
 
         File[] crossDomainFolders = mainFolder.listFiles(new FileFilter()
         {
-            @Override public boolean accept(File pathname)
+            @Override
+            public boolean accept(File pathname)
             {
                 return pathname.isDirectory() && pathname.getName().startsWith(prefix);
             }

@@ -61,13 +61,14 @@ public class TokenLevelEvaluationReport
                 .extractMetaDataFeatures(testFile);
 
         // sanity check
-        if (goldLabels.size() != sequenceIDs.size() ||
-                goldLabels.size() != metaDataFeatures.size()) {
+        if (goldLabels.size() != sequenceIDs.size() || goldLabels.size() != metaDataFeatures
+                .size()) {
             throw new IllegalStateException("check consistency");
         }
 
-        File evaluationFile = new File(getContext().getStorageLocation(TEST_TASK_OUTPUT_KEY,
-                StorageService.AccessMode.READWRITE), TOKEN_LEVEL_PREDICTIONS_CSV);
+        File evaluationFile = new File(getContext()
+                .getStorageLocation(TEST_TASK_OUTPUT_KEY, StorageService.AccessMode.READWRITE),
+                TOKEN_LEVEL_PREDICTIONS_CSV);
 
         // write results into CSV
         // form: gold;predicted;token;seqID
@@ -86,20 +87,20 @@ public class TokenLevelEvaluationReport
                     .decodeFromString(metaDataFeatures.get(i)
                             .get(OrigBIOTokenSequenceMetaDataFeatureGenerator.FEATURE_NAME));
             // get tokens for this sentence
-            List<String> tokens = AbstractSequenceMetaDataFeatureGenerator
-                    .decodeFromString(metaDataFeatures.get(i).get(
-                            OrigTokenSequenceMetaDataFeatureGenerator.FEATURE_NAME));
+            List<String> tokens = AbstractSequenceMetaDataFeatureGenerator.decodeFromString(
+                    metaDataFeatures.get(i)
+                            .get(OrigTokenSequenceMetaDataFeatureGenerator.FEATURE_NAME));
             // predicted token labels
-            List<String> recreatedPredictedTokenLabels = ReportTools.recreateTokenLabels(
-                    predictedLabelSentenceLevel, goldTokenLabels.size());
+            List<String> recreatedPredictedTokenLabels = ReportTools
+                    .recreateTokenLabels(predictedLabelSentenceLevel, goldTokenLabels.size());
 
             for (int j = 0; j < goldTokenLabels.size(); j++) {
                 String tokenGold = goldTokenLabels.get(j);
                 String tokenPredicted = recreatedPredictedTokenLabels.get(j);
 
                 // write to csv
-                csvPrinter.printRecord(tokenGold, tokenPredicted,
-                        tokens.get(j), sequenceIDs.get(i).toString());
+                csvPrinter.printRecord(tokenGold, tokenPredicted, tokens.get(j),
+                        sequenceIDs.get(i).toString());
 
                 // add to matrix
                 confusionMatrix.increaseValue(tokenGold, tokenPredicted);

@@ -35,7 +35,8 @@ import java.util.TreeMap;
 public class OutcomeSuccessMapReaderSequenceTokenCSVImpl
         implements OutcomeSuccessMapReader
 {
-    @Override public SortedMap<String, Boolean> readOutcomeSuccessMap(File file)
+    @Override
+    public SortedMap<String, Boolean> readOutcomeSuccessMap(File file)
     {
         SortedMap<String, Boolean> result = new TreeMap<>();
 

@@ -50,21 +50,16 @@ public class SentencesWriter
     {
         String goldDataDir = args[0];
 
-        SimplePipeline.runPipeline(CollectionReaderFactory.createReaderDescription(
-                        XmiReader.class,
-                        XmiReader.PARAM_SOURCE_LOCATION, goldDataDir,
-                        XmiReader.PARAM_PATTERNS, "[+]*.xmi",
-                        XmiReader.PARAM_LENIENT, false
-                ),
-//                AnalysisEngineFactory.createEngineDescription(
-//                        SentencesWriter.class,
-//                        SentencesWriter.PARAM_OUTPUT_FILE, "/tmp/out"
-//                ),
-                AnalysisEngineFactory.createEngineDescription(
-                        ComponentToFileWriter.class,
-                        ComponentToFileWriter.PARAM_OUTPUT_FILE, "/tmp/out"
-                )
-        );
+        SimplePipeline.runPipeline(CollectionReaderFactory
+                        .createReaderDescription(XmiReader.class, XmiReader.PARAM_SOURCE_LOCATION,
+                                goldDataDir, XmiReader.PARAM_PATTERNS, "[+]*.xmi",
+                                XmiReader.PARAM_LENIENT, false),
+                //                AnalysisEngineFactory.createEngineDescription(
+                //                        SentencesWriter.class,
+                //                        SentencesWriter.PARAM_OUTPUT_FILE, "/tmp/out"
+                //                ),
+                AnalysisEngineFactory.createEngineDescription(ComponentToFileWriter.class,
+                        ComponentToFileWriter.PARAM_OUTPUT_FILE, "/tmp/out"));
     }
 
     @Override

@@ -62,8 +62,8 @@ public class POSNGramUtilsTest
         t3.addToIndexes();
         t3.setPos(nn2);
 
-        SimplePipeline.runPipeline(jcas, AnalysisEngineFactory.createEngineDescription(
-                CasDumpWriter.class));
+        SimplePipeline.runPipeline(jcas,
+                AnalysisEngineFactory.createEngineDescription(CasDumpWriter.class));
 
         System.out.println(POSNgram.getSentencePosNGrams(jcas, 1, 3, true, s));
     }

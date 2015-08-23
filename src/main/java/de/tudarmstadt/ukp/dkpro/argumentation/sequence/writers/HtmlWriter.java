@@ -58,7 +58,8 @@ public class HtmlWriter
     @ConfigurationParameter(name = PARAM_OUTPUT_FOLDER, mandatory = true)
     private File outputFolder;
 
-    @Override public void initialize(UimaContext context)
+    @Override
+    public void initialize(UimaContext context)
             throws ResourceInitializationException
     {
         super.initialize(context);
@@ -87,11 +88,9 @@ public class HtmlWriter
                 ArgumentComponent argumentConcept = ArgumentPrinterUtils
                         .argAnnotationBegins(t, jCas);
                 if (argumentConcept != null) {
-                    out.printf(
-                            "<span class=\"component\">%s:</span> <span class=\"%s\">",
+                    out.printf("<span class=\"component\">%s:</span> <span class=\"%s\">",
                             argumentConcept.getClass().getSimpleName().toLowerCase(),
-                            argumentConcept.getClass().getSimpleName().toLowerCase()
-                    );
+                            argumentConcept.getClass().getSimpleName().toLowerCase());
                 }
 
                 Sentence sentence = ArgumentPrinterUtils.sentenceStartsOnToken(t);
@@ -115,7 +114,8 @@ public class HtmlWriter
         return result;
     }
 
-    @Override public void process(JCas aJCas)
+    @Override
+    public void process(JCas aJCas)
             throws AnalysisEngineProcessException
     {
         try {
@@ -164,7 +164,8 @@ public class HtmlWriter
         }
     }
 
-    @Override public void collectionProcessComplete()
+    @Override
+    public void collectionProcessComplete()
             throws AnalysisEngineProcessException
     {
         super.collectionProcessComplete();
@@ -192,8 +193,7 @@ public class HtmlWriter
         out.printf("<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<!DOCTYPE html PUBLIC"
                 + " \"-//W3C//DTD XHTML 1.0 Strict//EN\"\n\"http://www.w3.org/TR/xhtml1/"
                 + "DTD/strict.dtd\">\n<html xmlns=\"http://www.w3.org/TR/xhtml1/strict\" >\n"
-                + "<head>\n<title>%s</title>\n"
-                + "<link rel=\"stylesheet\" href=\"style.css\"/>\n"
+                + "<head>\n<title>%s</title>\n" + "<link rel=\"stylesheet\" href=\"style.css\"/>\n"
                 + " <meta http-equiv=\"content-type\" content=\"application/xhtml+xml; charset=UTF-8\" />\n"
                 + "</head>\n<body>\n", webArgumentMetadata.getOrigId());
         out.printf("<h1>%s</h1>\n<h2>%s, %s</h2>\n", webArgumentMetadata.getOrigId(),
@@ -205,15 +205,12 @@ public class HtmlWriter
     {
         String goldDataDir = args[0];
 
-        SimplePipeline.runPipeline(CollectionReaderFactory.createReaderDescription(
-                        XmiReader.class,
-                        XmiReader.PARAM_SOURCE_LOCATION, goldDataDir,
-                        XmiReader.PARAM_PATTERNS, "[+]*.xmi"
-                ),
-                AnalysisEngineFactory.createEngineDescription(
-                        HtmlWriter.class,
-                        HtmlWriter.PARAM_OUTPUT_FOLDER, "/tmp/out"
-                )
+        SimplePipeline.runPipeline(CollectionReaderFactory
+                        .createReaderDescription(XmiReader.class, XmiReader.PARAM_SOURCE_LOCATION,
+                                goldDataDir, XmiReader.PARAM_PATTERNS, "[+]*.xmi"),
+                AnalysisEngineFactory
+                        .createEngineDescription(HtmlWriter.class, HtmlWriter.PARAM_OUTPUT_FOLDER,
+                                "/tmp/out")
                 //                ,
                 //                AnalysisEngineFactory.createEngineDescription(
                 //                        ArgumentDumpWriter.class,

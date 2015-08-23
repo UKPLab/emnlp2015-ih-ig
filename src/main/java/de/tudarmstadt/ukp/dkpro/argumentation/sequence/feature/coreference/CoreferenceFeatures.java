@@ -87,7 +87,8 @@ public class CoreferenceFeatures
 
     static Logger log = Logger.getLogger(CoreferenceFeatures.class);
 
-    @Override protected List<Feature> extract(JCas jCas, Sentence sentence, String sentencePrefix)
+    @Override
+    protected List<Feature> extract(JCas jCas, Sentence sentence, String sentencePrefix)
             throws TextClassificationException
     {
         List<List<CoreferenceLink>> coreferenceChains = extractCoreferenceChains(jCas);
@@ -167,9 +168,8 @@ public class CoreferenceFeatures
                             .getReferenceType();
                     String currentSentenceFirstLinkReferenceType = currentSentenceFirstLink
                             .getReferenceType();
-                    String transitionType =
-                            prevSentenceLastLinkReferenceType + GLUE
-                                    + currentSentenceFirstLinkReferenceType;
+                    String transitionType = prevSentenceLastLinkReferenceType + GLUE
+                            + currentSentenceFirstLinkReferenceType;
                     featuresAcrossAllChains
                             .addSample(FN_TRANSITION_IN_TYPE_TYPE + transitionType, 1);
 
@@ -226,9 +226,8 @@ public class CoreferenceFeatures
                             .getReferenceType();
                     String nextSentenceFirstLinkReferenceType = nextSentenceFirstLink
                             .getReferenceType();
-                    String transitionType =
-                            currentSentenceLastLinkReferenceType + GLUE
-                                    + nextSentenceFirstLinkReferenceType;
+                    String transitionType = currentSentenceLastLinkReferenceType + GLUE
+                            + nextSentenceFirstLinkReferenceType;
                     featuresAcrossAllChains
                             .addSample(FN_TRANSITION_OUT_TYPE_TYPE + transitionType, 1);
 
@@ -375,8 +374,7 @@ public class CoreferenceFeatures
      * @return map
      */
     private static SortedMap<Integer, List<CoreferenceLink>> extractSentencesAndLinksFromChain(
-            List<CoreferenceLink> chain,
-            JCas jCas)
+            List<CoreferenceLink> chain, JCas jCas)
     {
         SortedMap<Integer, List<CoreferenceLink>> result = new TreeMap<>();
 
@@ -435,14 +433,12 @@ public class CoreferenceFeatures
     {
         final String corpusFilePathTrain = args[0];
 
-        CollectionReaderDescription reader = CollectionReaderFactory.createReaderDescription(
-                ArgumentSequenceSentenceLevelReader.class,
-                ArgumentSequenceSentenceLevelReader.PARAM_SOURCE_LOCATION,
-                corpusFilePathTrain,
-                ArgumentSequenceSentenceLevelReader.PARAM_PATTERNS,
-                ArgumentSequenceSentenceLevelReader.INCLUDE_PREFIX + "*.xmi",
-                ArgumentSequenceSentenceLevelReader.PARAM_LENIENT, false
-        );
+        CollectionReaderDescription reader = CollectionReaderFactory
+                .createReaderDescription(ArgumentSequenceSentenceLevelReader.class,
+                        ArgumentSequenceSentenceLevelReader.PARAM_SOURCE_LOCATION,
+                        corpusFilePathTrain, ArgumentSequenceSentenceLevelReader.PARAM_PATTERNS,
+                        ArgumentSequenceSentenceLevelReader.INCLUDE_PREFIX + "*.xmi",
+                        ArgumentSequenceSentenceLevelReader.PARAM_LENIENT, false);
 
         SimplePipeline.runPipeline(reader,
                 AnalysisEngineFactory.createEngineDescription(CoreferenceTester.class));
@@ -452,7 +448,8 @@ public class CoreferenceFeatures
             extends JCasAnnotator_ImplBase
     {
 
-        @Override public void process(JCas aJCas)
+        @Override
+        public void process(JCas aJCas)
                 throws AnalysisEngineProcessException
         {
             for (Sentence sentence : select(aJCas, Sentence.class)) {

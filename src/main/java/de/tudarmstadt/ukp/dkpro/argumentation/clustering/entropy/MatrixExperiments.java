@@ -82,7 +82,8 @@ public class MatrixExperiments
 
     }
 
-    public static <K, V extends Comparable<? super V>> LinkedHashMap<K, V> sortByValue(Map<K, V> map)
+    public static <K, V extends Comparable<? super V>> LinkedHashMap<K, V> sortByValue(
+            Map<K, V> map)
     {
         List<Map.Entry<K, V>> list = new LinkedList<>(map.entrySet());
         Collections.sort(list, new Comparator<Map.Entry<K, V>>()

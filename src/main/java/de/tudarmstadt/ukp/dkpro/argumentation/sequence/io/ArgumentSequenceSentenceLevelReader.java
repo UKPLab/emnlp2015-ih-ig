@@ -165,14 +165,14 @@ public class ArgumentSequenceSentenceLevelReader
         }
 
         Collection<ROOT> roots = JCasUtil.select(jCas, ROOT.class);
-//        if (roots.isEmpty()) {
-            //            System.err.println("No root of dependency tree found");
-//        }
+        //        if (roots.isEmpty()) {
+        //            System.err.println("No root of dependency tree found");
+        //        }
     }
 
     @Override
-    protected Collection<Resource> scan(String aBase,
-            Collection<String> aIncludes, Collection<String> aExcludes)
+    protected Collection<Resource> scan(String aBase, Collection<String> aIncludes,
+            Collection<String> aExcludes)
             throws IOException
     {
         Collection<Resource> resources = super.scan(aBase, aIncludes, aExcludes);
@@ -194,8 +194,9 @@ public class ArgumentSequenceSentenceLevelReader
 
                 CAS cas;
                 try {
-                    cas = CasCreationUtils.createCas(
-                            TypeSystemDescriptionFactory.createTypeSystemDescription(), null, null);
+                    cas = CasCreationUtils
+                            .createCas(TypeSystemDescriptionFactory.createTypeSystemDescription(),
+                                    null, null);
                 }
                 catch (ResourceInitializationException e) {
                     throw new IOException(e);

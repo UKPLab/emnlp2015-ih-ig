@@ -29,7 +29,8 @@ public class SVMAdapterBatchTokenReport
         extends SVMHMMAdapter
 {
 
-    @Override public Class<? extends ReportBase> getBatchTrainTestReportClass()
+    @Override
+    public Class<? extends ReportBase> getBatchTrainTestReportClass()
     {
         return TokenLevelBatchCrossValidationReport.class;
     }

@@ -67,8 +67,7 @@ public class LDATopicsFeature
     private Object[][] topWords;
 
     @Override
-    public boolean initialize(ResourceSpecifier aSpecifier,
-            Map<String, Object> aAdditionalParams)
+    public boolean initialize(ResourceSpecifier aSpecifier, Map<String, Object> aAdditionalParams)
             throws ResourceInitializationException
     {
         if (!super.initialize(aSpecifier, aAdditionalParams)) {
@@ -135,7 +134,8 @@ public class LDATopicsFeature
         return inference.getSampledDistribution(instances.get(0), inferIteration, 1, 5);
     }
 
-    @Override protected List<Feature> extract(JCas jCas, Sentence sentence, String sentencePrefix)
+    @Override
+    protected List<Feature> extract(JCas jCas, Sentence sentence, String sentencePrefix)
             throws TextClassificationException
     {
 

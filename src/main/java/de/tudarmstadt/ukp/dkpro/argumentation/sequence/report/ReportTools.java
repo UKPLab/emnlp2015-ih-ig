@@ -80,8 +80,7 @@ public class ReportTools
         pw.printf(Locale.ENGLISH, "%s\t%.3f%n", "Macro-Fm", confusionMatrix.getMacroFMeasure());
 
         // then for all labels
-        for (Map.Entry<String, Double> entry : confusionMatrix.getFMeasureForLabels()
-                .entrySet()) {
+        for (Map.Entry<String, Double> entry : confusionMatrix.getFMeasureForLabels().entrySet()) {
             pw.printf(Locale.ENGLISH, "%s\t%.3f%n", entry.getKey(), entry.getValue());
         }
         IOUtils.closeQuietly(pw);

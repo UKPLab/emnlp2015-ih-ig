@@ -50,18 +50,21 @@ public class FullDebateContentReader
      * Folder containing serialized XML files with {@link Debate} object in each file
      */
     public static final String PARAM_SOURCE_LOCATION = "sourceLocation";
-    @ConfigurationParameter(name = PARAM_SOURCE_LOCATION, mandatory = true) File sourceLocation;
+    @ConfigurationParameter(name = PARAM_SOURCE_LOCATION, mandatory = true)
+    File sourceLocation;
 
     Queue<File> files = new ArrayDeque<>();
 
-    @Override public void initialize(UimaContext context)
+    @Override
+    public void initialize(UimaContext context)
             throws ResourceInitializationException
     {
         super.initialize(context);
 
         File[] fileArray = sourceLocation.listFiles(new FilenameFilter()
         {
-            @Override public boolean accept(File dir, String name)
+            @Override
+            public boolean accept(File dir, String name)
             {
                 return name.endsWith(".xml");
             }
@@ -73,7 +76,8 @@ public class FullDebateContentReader
 
     }
 
-    @Override public void getNext(JCas jCas)
+    @Override
+    public void getNext(JCas jCas)
             throws IOException, CollectionException
     {
         File file = files.poll();
@@ -99,13 +103,15 @@ public class FullDebateContentReader
         jCas.setDocumentLanguage("en");
     }
 
-    @Override public boolean hasNext()
+    @Override
+    public boolean hasNext()
             throws IOException, CollectionException
     {
         return !files.isEmpty();
     }
 
-    @Override public Progress[] getProgress()
+    @Override
+    public Progress[] getProgress()
     {
         return new Progress[0];
     }

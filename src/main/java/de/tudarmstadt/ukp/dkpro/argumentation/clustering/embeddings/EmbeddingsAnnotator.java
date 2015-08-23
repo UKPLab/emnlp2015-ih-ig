@@ -71,7 +71,7 @@ public class EmbeddingsAnnotator
     @ConfigurationParameter(name = PARAM_VECTOR_AVERAGING, mandatory = true, defaultValue = "true")
     boolean vectorAveraging;
 
-    public  static final String PARAM_TFIDF_WEIGHTING = "tfIdfWeighting";
+    public static final String PARAM_TFIDF_WEIGHTING = "tfIdfWeighting";
     @ConfigurationParameter(name = PARAM_TFIDF_WEIGHTING, mandatory = true, defaultValue = "true")
     boolean tfIdfWeighting;
 

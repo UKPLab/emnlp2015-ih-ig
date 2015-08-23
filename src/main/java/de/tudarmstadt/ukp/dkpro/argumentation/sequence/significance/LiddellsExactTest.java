@@ -55,10 +55,10 @@ public class LiddellsExactTest
 
         double pValue = 2 * (1 - (1 - beta));
 
-//        if (pValue < 0.1) {
-//            System.out.println(r);
-//            System.out.println(s);
-//        }
+        //        if (pValue < 0.1) {
+        //            System.out.println(r);
+        //            System.out.println(s);
+        //        }
 
         return pValue;
     }

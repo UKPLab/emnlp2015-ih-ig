@@ -89,9 +89,8 @@ public class PDTBDiscourseFeatures
                 discourseFeaturesFreq
                         .addSample("discourse_relType_argType_" + relationType + "_" + argumentType,
                                 1);
-                discourseFeaturesFreq
-                        .addSample("discourse_relType_argType_argNo_" + relationType + "_"
-                                + argumentType + "_"
+                discourseFeaturesFreq.addSample(
+                        "discourse_relType_argType_argNo_" + relationType + "_" + argumentType + "_"
                                 + argumentNumber, 1);
             }
 
@@ -113,18 +112,19 @@ public class PDTBDiscourseFeatures
             // attribution
             for (DiscourseAttribution discourseAttribution : JCasUtil
                     .selectCovered(DiscourseAttribution.class, sentence)) {
-                discourseFeaturesBinary
-                        .addSample("discourse_attributionTokens_" + glueAttributionTokens(discourseAttribution), 1);
+                discourseFeaturesBinary.addSample(
+                        "discourse_attributionTokens_" + glueAttributionTokens(
+                                discourseAttribution), 1);
             }
         }
 
-//        System.out.println("Binary:\n" + discourseFeaturesBinary);
-//        System.out.println("Freq:\n" + discourseFeaturesFreq);
+        //        System.out.println("Binary:\n" + discourseFeaturesBinary);
+        //        System.out.println("Freq:\n" + discourseFeaturesFreq);
 
-//        for (DiscourseRelation relation : JCasUtil2.selectOverlapping(DiscourseRelation.class,
-//                sentence, jCas)) {
-            //            debugRelation(relation);
-//        }
+        //        for (DiscourseRelation relation : JCasUtil2.selectOverlapping(DiscourseRelation.class,
+        //                sentence, jCas)) {
+        //            debugRelation(relation);
+        //        }
 
         // create binary features
         for (String key : discourseFeaturesBinary.getKeys()) {
@@ -135,7 +135,6 @@ public class PDTBDiscourseFeatures
         for (String key : discourseFeaturesFreq.getKeys()) {
             result.add(new Feature(sentencePrefix + key, discourseFeaturesFreq.getCount(key)));
         }
-
 
         return result;
     }
@@ -158,14 +157,11 @@ public class PDTBDiscourseFeatures
             throws Exception
     {
         final String corpusFilePathTrain = args[0];
-        SimplePipeline.runPipeline(
-                CollectionReaderFactory.createReaderDescription(XmiReader.class,
-                        XmiReader.PARAM_LENIENT, false,
-                        XmiReader.PARAM_SOURCE_LOCATION, corpusFilePathTrain,
-                        XmiReader.PARAM_PATTERNS, XmiReader.INCLUDE_PREFIX + "*.xmi"
-                ),
-                AnalysisEngineFactory.createEngineDescription(DiscourseDumpWriter.class)
-        );
+        SimplePipeline.runPipeline(CollectionReaderFactory
+                        .createReaderDescription(XmiReader.class, XmiReader.PARAM_LENIENT, false,
+                                XmiReader.PARAM_SOURCE_LOCATION, corpusFilePathTrain,
+                                XmiReader.PARAM_PATTERNS, XmiReader.INCLUDE_PREFIX + "*.xmi"),
+                AnalysisEngineFactory.createEngineDescription(DiscourseDumpWriter.class));
     }
 
 }

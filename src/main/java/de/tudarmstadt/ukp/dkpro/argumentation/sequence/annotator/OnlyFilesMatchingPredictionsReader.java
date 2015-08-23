@@ -76,8 +76,9 @@ public class OnlyFilesMatchingPredictionsReader
         super.initialize(context);
     }
 
-    @Override protected Collection<Resource> scan(String aBase,
-            Collection<String> aIncludes, Collection<String> aExcludes)
+    @Override
+    protected Collection<Resource> scan(String aBase, Collection<String> aIncludes,
+            Collection<String> aExcludes)
             throws IOException
     {
         Collection<Resource> resources = super.scan(aBase, aIncludes, aExcludes);
@@ -89,8 +90,9 @@ public class OnlyFilesMatchingPredictionsReader
 
             CAS cas;
             try {
-                cas = CasCreationUtils.createCas(
-                        TypeSystemDescriptionFactory.createTypeSystemDescription(), null, null);
+                cas = CasCreationUtils
+                        .createCas(TypeSystemDescriptionFactory.createTypeSystemDescription(), null,
+                                null);
             }
             catch (ResourceInitializationException e) {
                 throw new IOException(e);
@@ -237,8 +239,8 @@ public class OnlyFilesMatchingPredictionsReader
         // don't forget to add the last sequence
         result.add(currentSequence);
 
-        System.out.println("Loaded " + result.size() + " sequences with total " + tokenCounter
-                + " tokens.");
+        System.out.println(
+                "Loaded " + result.size() + " sequences with total " + tokenCounter + " tokens.");
 
         return result;
     }

@@ -22,8 +22,8 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
-* @author xxx
-*/
+ * @author xxx
+ */
 class Sequence
 {
     private List<TokenEntry> tokens = new ArrayList<>();
@@ -33,7 +33,8 @@ class Sequence
         return tokens;
     }
 
-    @Override public String toString()
+    @Override
+    public String toString()
     {
         return "Sequence{" +
                 "tokens=" + tokens +

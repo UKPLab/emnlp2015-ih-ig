@@ -43,33 +43,23 @@ public class ArgumentsEmbeddingsAnnotatorMain
 
         SimplePipeline.runPipeline(CollectionReaderFactory
                         .createReaderDescription(XmiReader.class, XmiReader.PARAM_SOURCE_LOCATION,
-                                in, XmiReader.PARAM_PATTERNS,
-                                XmiReader.INCLUDE_PREFIX + "*.xmi"), AnalysisEngineFactory
-                        .createEngineDescription(
-                                EmbeddingsCachePreprocessor.class,
-                                EmbeddingsCachePreprocessor.PARAM_CACHE_FILE, cache,
-                                EmbeddingsCachePreprocessor.PARAM_WORD_2_VEC_FILE, w2vec
-                        )
-        );
+                                in, XmiReader.PARAM_PATTERNS, XmiReader.INCLUDE_PREFIX + "*.xmi"),
+                AnalysisEngineFactory.createEngineDescription(EmbeddingsCachePreprocessor.class,
+                        EmbeddingsCachePreprocessor.PARAM_CACHE_FILE, cache,
+                        EmbeddingsCachePreprocessor.PARAM_WORD_2_VEC_FILE, w2vec));
 
         SimplePipeline.runPipeline(CollectionReaderFactory
                         .createReaderDescription(XmiReader.class, XmiReader.PARAM_SOURCE_LOCATION,
-                                in, XmiReader.PARAM_PATTERNS,
-                                XmiReader.INCLUDE_PREFIX + "*.xmi"), AnalysisEngineFactory
-                        .createEngineDescription(TfidfAnnotator.class,
-                                TfidfAnnotator.PARAM_FEATURE_PATH, Token.class.getName(),
-                                TfidfAnnotator.PARAM_TFDF_PATH, tfidfModel,
-                                TfidfAnnotator.PARAM_TF_MODE,
-                                TfidfAnnotator.WeightingModeTf.LOG_PLUS_ONE,
-                                TfidfAnnotator.PARAM_IDF_MODE, TfidfAnnotator.WeightingModeIdf.LOG),
-                AnalysisEngineFactory.createEngineDescription(
-                        EmbeddingsAnnotator.class,
-                        EmbeddingsAnnotator.PARAM_WORD_2_VEC_FILE, w2vec,
-                        EmbeddingsAnnotator.PARAM_CACHE_FILE, cache
-                ),
-                AnalysisEngineFactory.createEngineDescription(
-                        XmiWriter.class,
-                        XmiWriter.PARAM_TARGET_LOCATION, out
-                ));
+                                in, XmiReader.PARAM_PATTERNS, XmiReader.INCLUDE_PREFIX + "*.xmi"),
+                AnalysisEngineFactory.createEngineDescription(TfidfAnnotator.class,
+                        TfidfAnnotator.PARAM_FEATURE_PATH, Token.class.getName(),
+                        TfidfAnnotator.PARAM_TFDF_PATH, tfidfModel, TfidfAnnotator.PARAM_TF_MODE,
+                        TfidfAnnotator.WeightingModeTf.LOG_PLUS_ONE, TfidfAnnotator.PARAM_IDF_MODE,
+                        TfidfAnnotator.WeightingModeIdf.LOG), AnalysisEngineFactory
+                        .createEngineDescription(EmbeddingsAnnotator.class,
+                                EmbeddingsAnnotator.PARAM_WORD_2_VEC_FILE, w2vec,
+                                EmbeddingsAnnotator.PARAM_CACHE_FILE, cache), AnalysisEngineFactory
+                        .createEngineDescription(XmiWriter.class, XmiWriter.PARAM_TARGET_LOCATION,
+                                out));
     }
 }

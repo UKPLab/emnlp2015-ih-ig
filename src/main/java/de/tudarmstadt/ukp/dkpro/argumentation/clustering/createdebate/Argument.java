@@ -159,7 +159,8 @@ public class Argument
         this.timestamp = timestamp;
     }
 
-    @Override public String toString()
+    @Override
+    public String toString()
     {
         return "Argument{" +
                 "author='" + author + '\'' +

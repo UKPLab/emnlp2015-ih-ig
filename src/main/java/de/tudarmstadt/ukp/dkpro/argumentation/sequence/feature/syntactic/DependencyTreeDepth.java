@@ -41,7 +41,8 @@ public class DependencyTreeDepth
 
     public static final String FN_DEPENDENCY_TREE_DEPTH = "DependencyTreeDepth";
 
-    @Override protected List<Feature> extract(JCas jCas, Sentence sentence, String sentencePrefix)
+    @Override
+    protected List<Feature> extract(JCas jCas, Sentence sentence, String sentencePrefix)
             throws TextClassificationException
     {
         List<Feature> featList = new ArrayList<>();

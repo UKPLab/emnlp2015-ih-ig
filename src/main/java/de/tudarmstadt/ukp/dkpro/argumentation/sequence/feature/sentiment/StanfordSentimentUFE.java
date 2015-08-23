@@ -42,13 +42,13 @@ public class StanfordSentimentUFE
 {
     static Logger log = Logger.getLogger(StanfordSentimentUFE.class);
 
-    @Override protected List<Feature> extract(JCas jCas, Sentence sentence, String sentencePrefix)
+    @Override
+    protected List<Feature> extract(JCas jCas, Sentence sentence, String sentencePrefix)
             throws TextClassificationException
     {
         List<Feature> result = new ArrayList<>();
         List<StanfordSentimentAnnotation> sentimentAnnotations = selectCovered(
-                StanfordSentimentAnnotation.class,
-                sentence);
+                StanfordSentimentAnnotation.class, sentence);
         if (sentimentAnnotations.size() != 1) {
             log.warn("No sentiment annotations for sentence " + sentence.getCoveredText());
 

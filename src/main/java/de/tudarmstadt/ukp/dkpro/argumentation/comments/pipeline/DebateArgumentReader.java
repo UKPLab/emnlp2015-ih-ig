@@ -42,6 +42,7 @@ import java.util.Queue;
 /**
  * Reader for arguments from serialized {@link Debate}s in XML files
  * <p/>
+ *
  * @author Ivan Habernal
  */
 public class DebateArgumentReader

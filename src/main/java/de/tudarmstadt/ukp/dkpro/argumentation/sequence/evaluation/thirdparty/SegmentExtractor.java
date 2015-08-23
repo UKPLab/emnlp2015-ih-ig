@@ -62,8 +62,7 @@ public class SegmentExtractor
 
         for (int i = 0; i < tokens.size(); i++) {
             Token token = tokens.get(i);
-            List<ArgumentComponent> covering = JCasUtil.selectCovering(
-                    argumentComponent, token);
+            List<ArgumentComponent> covering = JCasUtil.selectCovering(argumentComponent, token);
 
             // remove pathos and implicit components
             covering = ArgumentUtils.removeAppealToEmotion(covering);

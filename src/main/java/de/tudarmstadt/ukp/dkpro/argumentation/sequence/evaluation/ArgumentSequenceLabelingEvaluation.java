@@ -23,6 +23,13 @@ import com.beust.jcommander.Parameter;
 import com.beust.jcommander.ParameterException;
 import de.tudarmstadt.ukp.dkpro.argumentation.sequence.DocumentDomain;
 import de.tudarmstadt.ukp.dkpro.argumentation.sequence.DocumentRegister;
+import de.tudarmstadt.ukp.dkpro.argumentation.sequence.adapter.SVMAdapterBatchTokenReport;
+import de.tudarmstadt.ukp.dkpro.argumentation.sequence.evaluation.helpers.FeatureSetHelper;
+import de.tudarmstadt.ukp.dkpro.argumentation.sequence.feature.clustering.ArgumentSpaceFeatureExtractor;
+import de.tudarmstadt.ukp.dkpro.argumentation.sequence.feature.lda.LDATopicsFeature;
+import de.tudarmstadt.ukp.dkpro.argumentation.sequence.feature.lexical.LemmaLuceneNGramUFE;
+import de.tudarmstadt.ukp.dkpro.argumentation.sequence.io.ArgumentSequenceSentenceLevelReader;
+import de.tudarmstadt.ukp.dkpro.argumentation.sequence.report.TokenLevelEvaluationReport;
 import de.tudarmstadt.ukp.dkpro.argumentation.sequence.report.TokenLevelMacroFMReport;
 import de.tudarmstadt.ukp.dkpro.lab.Lab;
 import de.tudarmstadt.ukp.dkpro.lab.task.Dimension;
@@ -38,13 +45,6 @@ import org.apache.uima.analysis_engine.AnalysisEngineDescription;
 import org.apache.uima.fit.component.NoOpAnnotator;
 import org.apache.uima.fit.factory.AnalysisEngineFactory;
 import org.apache.uima.resource.ResourceInitializationException;
-import de.tudarmstadt.ukp.dkpro.argumentation.sequence.adapter.SVMAdapterBatchTokenReport;
-import de.tudarmstadt.ukp.dkpro.argumentation.sequence.evaluation.helpers.FeatureSetHelper;
-import de.tudarmstadt.ukp.dkpro.argumentation.sequence.feature.clustering.ArgumentSpaceFeatureExtractor;
-import de.tudarmstadt.ukp.dkpro.argumentation.sequence.feature.lda.LDATopicsFeature;
-import de.tudarmstadt.ukp.dkpro.argumentation.sequence.feature.lexical.LemmaLuceneNGramUFE;
-import de.tudarmstadt.ukp.dkpro.argumentation.sequence.io.ArgumentSequenceSentenceLevelReader;
-import de.tudarmstadt.ukp.dkpro.argumentation.sequence.report.TokenLevelEvaluationReport;
 
 import java.io.File;
 import java.text.SimpleDateFormat;
@@ -77,9 +77,9 @@ public class ArgumentSequenceLabelingEvaluation
     @Parameter(names = { "--paramT", "--t" }, description = "Parameter T for SVMHMM")
     private Integer paramT = 1;
 
-    @Parameter(names = { "--scenario",
-            "--s" }, description = "Evaluation scenario (cv = cross-validation, cd = cross domain,"
-            + " id = in domain)", required = true)
+    @Parameter(names = { "--scenario", "--s" }, description =
+            "Evaluation scenario (cv = cross-validation, cd = cross domain,"
+                    + " id = in domain)", required = true)
     String scenario;
 
     @Parameter(names = { "--cl",
@@ -290,8 +290,7 @@ public class ArgumentSequenceLabelingEvaluation
                                 LemmaLuceneNGramUFE.PARAM_NGRAM_MAX_N, 3,
                                 LDATopicsFeature.PARAM_LDA_MODEL_FILE,
                                 "classpath:/lda/mallet-lda-model-30-topics.bin",
-                                ArgumentSpaceFeatureExtractor.PARAM_CENTROIDS,
-                                requiredClusters }
+                                ArgumentSpaceFeatureExtractor.PARAM_CENTROIDS, requiredClusters }
                         //                        "classpath:/centroids.1000.bin" }
                 ));
 
@@ -319,8 +318,8 @@ public class ArgumentSequenceLabelingEvaluation
             throws Exception
     {
         ExperimentCrossValidation batch = new ExperimentCrossValidation(
-                "ArgumentSequenceLabelingCV", SVMAdapterBatchTokenReport.class,
-                getPreprocessing(), NUM_FOLDS);
+                "ArgumentSequenceLabelingCV", SVMAdapterBatchTokenReport.class, getPreprocessing(),
+                NUM_FOLDS);
         batch.setParameterSpace(pSpace);
         batch.addInnerReport(TokenLevelEvaluationReport.class);
         //        batch.addInnerReport(TokenLevelMacroFMReport.class);
@@ -358,8 +357,7 @@ public class ArgumentSequenceLabelingEvaluation
     {
         ExperimentCrossValidation batch = new ExperimentCrossValidation(
                 "ArgumentSequenceLabeling_InDomain_" + documentDomain.toString(),
-                SVMAdapterBatchTokenReport.class,
-                getPreprocessing(), NUM_FOLDS);
+                SVMAdapterBatchTokenReport.class, getPreprocessing(), NUM_FOLDS);
         batch.setParameterSpace(pSpace);
         batch.addInnerReport(TokenLevelEvaluationReport.class);
         batch.addInnerReport(TokenLevelMacroFMReport.class);
@@ -374,8 +372,7 @@ public class ArgumentSequenceLabelingEvaluation
     {
         ExperimentTrainTest batch = new ExperimentTrainTest(
                 "ArgumentSequenceLabeling_CrossDomain_" + documentDomain.toString(),
-                SVMAdapterBatchTokenReport.class,
-                getPreprocessing());
+                SVMAdapterBatchTokenReport.class, getPreprocessing());
         batch.setParameterSpace(pSpace);
         batch.addInnerReport(TokenLevelEvaluationReport.class);
         batch.addInnerReport(TokenLevelMacroFMReport.class);
@@ -389,8 +386,7 @@ public class ArgumentSequenceLabelingEvaluation
             throws Exception
     {
         ExperimentTrainTest batch = new ExperimentTrainTest(
-                "ArgumentSequenceLabeling_CrossRegister_" + name,
-                SVMAdapterBatchTokenReport.class,
+                "ArgumentSequenceLabeling_CrossRegister_" + name, SVMAdapterBatchTokenReport.class,
                 getPreprocessing());
         batch.setParameterSpace(pSpace);
         batch.addInnerReport(TokenLevelEvaluationReport.class);

@@ -59,7 +59,8 @@ public class CharacterFrequencyCounter
         }
     }
 
-    @Override public void collectionProcessComplete()
+    @Override
+    public void collectionProcessComplete()
             throws AnalysisEngineProcessException
     {
         super.collectionProcessComplete();

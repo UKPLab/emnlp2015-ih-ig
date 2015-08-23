@@ -42,7 +42,8 @@ public class PositionInDocument
     private static final String FN_FIRST_SENTENCE_IN_DOCUMENT = "isFirstSentenceInDocument";
     private static final String FN_LAST_SENTENCE_IN_DOCUMENT = "isLastSentenceInDocument";
 
-    @Override protected List<Feature> extract(JCas jCas, Sentence sentence, String sentencePrefix)
+    @Override
+    protected List<Feature> extract(JCas jCas, Sentence sentence, String sentencePrefix)
             throws TextClassificationException
     {
         List<Feature> result = new ArrayList<>();
@@ -71,8 +72,7 @@ public class PositionInDocument
             lastSentenceInDocument = true;
         }
 
-        double relativePositionInDocument =
-                (double) positionInDocument / (double) sentences.size();
+        double relativePositionInDocument = (double) positionInDocument / (double) sentences.size();
 
         result.add(new Feature(sentencePrefix + FN_RELATIVE_POSITION_IN_DOCUMENT,
                 relativePositionInDocument));

@@ -46,12 +46,12 @@ public class SignificanceMain
         File mainFolder = new File(args[0]);
 
         //        compareMethods(mainFolder, "cv_");
-//        compareMethods(mainFolder, "cd_hs");
-//        compareMethods(mainFolder, "cd_ms");
-//        compareMethods(mainFolder, "cd_pis");
-//        compareMethods(mainFolder, "cd_pps");
-//        compareMethods(mainFolder, "cd_rs");
-//        compareMethods(mainFolder, "cd_sse");
+        //        compareMethods(mainFolder, "cd_hs");
+        //        compareMethods(mainFolder, "cd_ms");
+        //        compareMethods(mainFolder, "cd_pis");
+        //        compareMethods(mainFolder, "cd_pps");
+        //        compareMethods(mainFolder, "cd_rs");
+        //        compareMethods(mainFolder, "cd_sse");
         compareMethods(mainFolder, "cr_longToShort");
         compareMethods(mainFolder, "cr_shortToLong");
 
@@ -69,7 +69,8 @@ public class SignificanceMain
     {
         File[] cvResults = mainFolder.listFiles(new FileFilter()
         {
-            @Override public boolean accept(File pathname)
+            @Override
+            public boolean accept(File pathname)
             {
                 return pathname.isDirectory() && pathname.getName().startsWith(folderResultPrefix);
             }

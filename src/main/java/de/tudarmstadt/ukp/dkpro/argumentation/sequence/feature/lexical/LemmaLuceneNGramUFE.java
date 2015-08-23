@@ -33,8 +33,7 @@ import java.util.List;
  * Extracts token n-grams within the given text classification unit
  */
 @TypeCapability(inputs = { "de.tudarmstadt.ukp.dkpro.core.api.segmentation.type.Sentence",
-        "de.tudarmstadt.ukp.dkpro.core.api.segmentation.type.Token" })
-public class LemmaLuceneNGramUFE
+        "de.tudarmstadt.ukp.dkpro.core.api.segmentation.type.Token" }) public class LemmaLuceneNGramUFE
         extends LemmaLuceneNgramFeatureExtractorBase
         implements ClassificationUnitFeatureExtractor
 {
@@ -44,9 +43,9 @@ public class LemmaLuceneNGramUFE
             throws TextClassificationException
     {
         List<Feature> features = new ArrayList<>();
-        FrequencyDistribution<String> documentNGrams = LemmaNGramUtils.getAnnotationNGrams(jcas,
-                classificationUnit, ngramLowerCase, filterPartialStopwordMatches, ngramMinN,
-                ngramMaxN, stopwords);
+        FrequencyDistribution<String> documentNGrams = LemmaNGramUtils
+                .getAnnotationNGrams(jcas, classificationUnit, ngramLowerCase,
+                        filterPartialStopwordMatches, ngramMinN, ngramMaxN, stopwords);
 
         for (String topNGram : topKSet.getKeys()) {
             if (documentNGrams.getKeys().contains(topNGram)) {

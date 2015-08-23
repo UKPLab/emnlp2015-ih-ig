@@ -26,7 +26,6 @@ import org.apache.uima.fit.util.JCasUtil;
 import org.apache.uima.jcas.JCas;
 
 import java.util.ArrayList;
-import java.util.Collection;
 import java.util.List;
 
 /**
@@ -52,8 +51,7 @@ public class ArgumentPrinterUtils
                 .next();
 
         return !prevTokens.isEmpty() && (prevTokens.iterator().next().getEnd() != token.getBegin())
-                && (
-                token.getBegin() != paragraph.getBegin());
+                && (token.getBegin() != paragraph.getBegin());
     }
 
     /**
@@ -67,16 +65,16 @@ public class ArgumentPrinterUtils
     {
         List<ArgumentComponent> argumentAnnotations = new ArrayList<>();
 
-        argumentAnnotations.addAll(JCasUtil
-                .selectCovering(jCas, Claim.class, t.getBegin(), t.getEnd()));
-        argumentAnnotations.addAll(JCasUtil
-                .selectCovering(jCas, Backing.class, t.getBegin(), t.getEnd()));
-        argumentAnnotations.addAll(JCasUtil
-                .selectCovering(jCas, Premise.class, t.getBegin(), t.getEnd()));
-        argumentAnnotations.addAll(JCasUtil
-                .selectCovering(jCas, Rebuttal.class, t.getBegin(), t.getEnd()));
-        argumentAnnotations.addAll(JCasUtil
-                .selectCovering(jCas, Refutation.class, t.getBegin(), t.getEnd()));
+        argumentAnnotations
+                .addAll(JCasUtil.selectCovering(jCas, Claim.class, t.getBegin(), t.getEnd()));
+        argumentAnnotations
+                .addAll(JCasUtil.selectCovering(jCas, Backing.class, t.getBegin(), t.getEnd()));
+        argumentAnnotations
+                .addAll(JCasUtil.selectCovering(jCas, Premise.class, t.getBegin(), t.getEnd()));
+        argumentAnnotations
+                .addAll(JCasUtil.selectCovering(jCas, Rebuttal.class, t.getBegin(), t.getEnd()));
+        argumentAnnotations
+                .addAll(JCasUtil.selectCovering(jCas, Refutation.class, t.getBegin(), t.getEnd()));
 
         if (!argumentAnnotations.isEmpty() && argumentAnnotations.get(0).getBegin() == t
                 .getBegin()) {
@@ -97,16 +95,16 @@ public class ArgumentPrinterUtils
     {
         List<ArgumentComponent> argumentAnnotations = new ArrayList<>();
 
-        argumentAnnotations.addAll(JCasUtil
-                .selectCovering(jCas, Claim.class, t.getBegin(), t.getEnd()));
-        argumentAnnotations.addAll(JCasUtil
-                .selectCovering(jCas, Backing.class, t.getBegin(), t.getEnd()));
-        argumentAnnotations.addAll(JCasUtil
-                .selectCovering(jCas, Premise.class, t.getBegin(), t.getEnd()));
-        argumentAnnotations.addAll(JCasUtil
-                .selectCovering(jCas, Rebuttal.class, t.getBegin(), t.getEnd()));
-        argumentAnnotations.addAll(JCasUtil
-                .selectCovering(jCas, Refutation.class, t.getBegin(), t.getEnd()));
+        argumentAnnotations
+                .addAll(JCasUtil.selectCovering(jCas, Claim.class, t.getBegin(), t.getEnd()));
+        argumentAnnotations
+                .addAll(JCasUtil.selectCovering(jCas, Backing.class, t.getBegin(), t.getEnd()));
+        argumentAnnotations
+                .addAll(JCasUtil.selectCovering(jCas, Premise.class, t.getBegin(), t.getEnd()));
+        argumentAnnotations
+                .addAll(JCasUtil.selectCovering(jCas, Rebuttal.class, t.getBegin(), t.getEnd()));
+        argumentAnnotations
+                .addAll(JCasUtil.selectCovering(jCas, Refutation.class, t.getBegin(), t.getEnd()));
 
         return !argumentAnnotations.isEmpty() && argumentAnnotations.get(0).getEnd() == t.getEnd();
     }

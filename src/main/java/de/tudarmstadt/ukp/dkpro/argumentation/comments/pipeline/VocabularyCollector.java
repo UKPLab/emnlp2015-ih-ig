@@ -77,8 +77,8 @@ public class VocabularyCollector
         super.initialize(context);
 
         if (minimalOccurrence < 0) {
-            throw new ResourceInitializationException(new IllegalArgumentException(
-                    "Minimal occurrence must be positive integer"));
+            throw new ResourceInitializationException(
+                    new IllegalArgumentException("Minimal occurrence must be positive integer"));
         }
 
         try {

@@ -19,8 +19,8 @@
 package de.tudarmstadt.ukp.dkpro.argumentation.sequence.annotator;
 
 /**
-* @author xxx
-*/
+ * @author xxx
+ */
 class TokenEntry
 {
     private final String token;
@@ -42,7 +42,8 @@ class TokenEntry
         return token;
     }
 
-    @Override public String toString()
+    @Override
+    public String toString()
     {
         return "TokenEntry{" +
                 "token='" + token + '\'' +

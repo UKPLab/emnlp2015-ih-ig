@@ -118,8 +118,7 @@ public class ClusterTopicMatrixGenerator
                             + debateTopicMapFile);
         }
 
-        Vector topicDistributionVector = VectorUtils
-                .listToVector(topicDistribution);
+        Vector topicDistributionVector = VectorUtils.listToVector(topicDistribution);
 
         // iterate over sentences
         for (Sentence sentence : JCasUtil.select(aJCas, Sentence.class)) {

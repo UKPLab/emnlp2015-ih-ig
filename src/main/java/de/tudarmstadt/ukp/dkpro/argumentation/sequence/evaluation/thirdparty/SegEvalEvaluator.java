@@ -18,6 +18,9 @@
 
 package de.tudarmstadt.ukp.dkpro.argumentation.sequence.evaluation.thirdparty;
 
+import de.tudarmstadt.ukp.dkpro.argumentation.sequence.annotator.SequenceAnnotatorFromTokenLevelPredictions;
+import de.tudarmstadt.ukp.dkpro.argumentation.sequence.evaluation.JCasIOHelper;
+import de.tudarmstadt.ukp.dkpro.argumentation.sequence.evaluation.thirdparty.jython.JythonInterpreter;
 import de.tudarmstadt.ukp.dkpro.argumentation.types.ArgumentComponent;
 import de.tudarmstadt.ukp.dkpro.core.io.xmi.XmiReader;
 import de.tudarmstadt.ukp.dkpro.core.io.xmi.XmiWriter;
@@ -26,9 +29,6 @@ import org.apache.uima.fit.factory.AnalysisEngineFactory;
 import org.apache.uima.fit.factory.CollectionReaderFactory;
 import org.apache.uima.fit.pipeline.SimplePipeline;
 import org.apache.uima.jcas.JCas;
-import de.tudarmstadt.ukp.dkpro.argumentation.sequence.annotator.SequenceAnnotatorFromTokenLevelPredictions;
-import de.tudarmstadt.ukp.dkpro.argumentation.sequence.evaluation.JCasIOHelper;
-import de.tudarmstadt.ukp.dkpro.argumentation.sequence.evaluation.thirdparty.jython.JythonInterpreter;
 
 import java.io.File;
 import java.io.IOException;
@@ -78,7 +78,7 @@ public class SegEvalEvaluator
         DescriptiveStatistics statistics = new DescriptiveStatistics();
 
         File[] files = predictionsFolder.listFiles(JCasIOHelper.XMI_FILTER);
-//        System.out.println("Predicted files size: " + files.length);
+        //        System.out.println("Predicted files size: " + files.length);
 
         for (File predicted : files) {
             File gold = new File(goldFolder, predicted.getName());
@@ -111,16 +111,15 @@ public class SegEvalEvaluator
             File outputPath)
             throws Exception
     {
-        SimplePipeline.runPipeline(
-                CollectionReaderFactory.createReaderDescription(XmiReader.class,
-                        XmiReader.PARAM_SOURCE_LOCATION, goldDataPath,
-                        XmiReader.PARAM_PATTERNS, XmiReader.INCLUDE_PREFIX + "*.xmi"),
-                AnalysisEngineFactory
+        SimplePipeline.runPipeline(CollectionReaderFactory
+                        .createReaderDescription(XmiReader.class, XmiReader.PARAM_SOURCE_LOCATION,
+                                goldDataPath, XmiReader.PARAM_PATTERNS,
+                                XmiReader.INCLUDE_PREFIX + "*.xmi"), AnalysisEngineFactory
                         .createEngineDescription(SequenceAnnotatorFromTokenLevelPredictions.class,
                                 SequenceAnnotatorFromTokenLevelPredictions.PARAM_TOKEN_LEVEL_PREDICTIONS_CSV_FILE,
-                                predictionsCSV),
-                AnalysisEngineFactory.createEngineDescription(XmiWriter.class,
-                        XmiWriter.PARAM_TARGET_LOCATION, outputPath));
+                                predictionsCSV), AnalysisEngineFactory
+                        .createEngineDescription(XmiWriter.class, XmiWriter.PARAM_TARGET_LOCATION,
+                                outputPath));
     }
 
     public static final String goldDataPath = "TBD";
@@ -152,10 +151,10 @@ public class SegEvalEvaluator
     public static void main(String[] args)
             throws Exception
     {
-                segmentEvaluationThreeAnnotators();
-//        evaluatePredictions();
+        segmentEvaluationThreeAnnotators();
+        //        evaluatePredictions();
 
-//        evaluatePredictionsFolders(new File("/usr/local/data/argumentation/metacentrum-results-all-runs-exported-annotated/"));
+        //        evaluatePredictionsFolders(new File("/usr/local/data/argumentation/metacentrum-results-all-runs-exported-annotated/"));
     }
 
 }
