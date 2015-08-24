@@ -44,7 +44,7 @@ import java.util.Map;
 import java.util.TreeMap;
 
 /**
- * @author xxx
+ * @author Ivan Habernal
  */
 public class PDTBDiscourseFeatures
         extends AbstractUnitSentenceFeatureGenerator

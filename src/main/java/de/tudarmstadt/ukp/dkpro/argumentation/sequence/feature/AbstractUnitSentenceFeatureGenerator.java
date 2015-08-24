@@ -37,7 +37,7 @@ import java.util.Map;
  * Abstract feature generator that ensures the unit is a single sentence and automatically filters
  * empty features.
  *
- * @author xxx
+ * @author Ivan Habernal
  */
 public abstract class AbstractUnitSentenceFeatureGenerator
         extends FeatureExtractorResource_ImplBase

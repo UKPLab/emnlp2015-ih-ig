@@ -30,7 +30,7 @@ import java.io.FileInputStream;
 import java.io.FilenameFilter;
 
 /**
- * @author xxx
+ * @author Ivan Habernal
  */
 public class JCasIOHelper
 {

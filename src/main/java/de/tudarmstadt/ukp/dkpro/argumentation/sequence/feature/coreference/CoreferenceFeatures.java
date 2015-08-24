@@ -49,7 +49,7 @@ import java.util.TreeMap;
 import static org.apache.uima.fit.util.JCasUtil.select;
 
 /**
- * @author xxx
+ * @author Ivan Habernal
  */
 public class CoreferenceFeatures
         extends AbstractUnitSentenceFeatureGenerator

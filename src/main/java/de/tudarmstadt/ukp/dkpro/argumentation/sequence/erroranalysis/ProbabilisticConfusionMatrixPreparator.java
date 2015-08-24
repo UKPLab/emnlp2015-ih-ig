@@ -24,7 +24,7 @@ import java.io.File;
 import java.io.IOException;
 
 /**
- * @author xxx
+ * @author Ivan Habernal
  */
 public class ProbabilisticConfusionMatrixPreparator
 {

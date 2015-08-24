@@ -52,7 +52,7 @@ import java.util.Map.Entry;
  * annotation type and string representation. It uses a pre-serialized {@link DfStore}, which can be
  * created using the {@link de.tudarmstadt.ukp.dkpro.core.frequency.tfidf.TfidfConsumer}.
  *
- * @author xxx
+ * @author Ivan Habernal
  */
 @TypeCapability(outputs = {
         "de.tudarmstadt.ukp.dkpro.core.api.frequency.tfidf.type.Tfidf" }) public class TfidfAnnotatorFixed

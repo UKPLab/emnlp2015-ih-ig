@@ -56,7 +56,7 @@ import static de.tudarmstadt.ukp.dkpro.core.api.resources.ResourceUtils.resolveL
  * This extractor is based on lemma; thus both the pre-trained LDA and the annotated jCas must
  * contain lemmas.
  *
- * @author xxx
+ * @author Ivan Habernal
  */
 public class LDATopicsFeature
         extends AbstractUnitSentenceFeatureGenerator

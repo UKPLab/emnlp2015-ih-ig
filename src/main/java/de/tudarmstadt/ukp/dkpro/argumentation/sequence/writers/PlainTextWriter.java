@@ -38,7 +38,7 @@ import org.apache.uima.resource.ResourceInitializationException;
 import java.io.*;
 
 /**
- * @author xxx
+ * @author Ivan Habernal
  */
 public class PlainTextWriter
         extends JCasAnnotator_ImplBase

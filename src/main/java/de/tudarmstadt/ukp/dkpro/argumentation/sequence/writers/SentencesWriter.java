@@ -36,7 +36,7 @@ import java.io.FileNotFoundException;
 import java.io.PrintWriter;
 
 /**
- * @author xxx
+ * @author Ivan Habernal
  */
 public class SentencesWriter
         extends JCasAnnotator_ImplBase

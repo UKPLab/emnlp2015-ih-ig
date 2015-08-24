@@ -27,7 +27,7 @@ import java.util.Set;
 /**
  * Filter wrt document register
  *
- * @author xxx
+ * @author Ivan Habernal
  */
 public class DocumentRegisterFilter
         implements DocumentCollectionFilter

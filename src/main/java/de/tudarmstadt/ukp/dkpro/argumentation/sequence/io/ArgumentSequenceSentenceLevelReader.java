@@ -60,7 +60,7 @@ import java.util.List;
  * Main reader for the experiments in sequence labeling; filters for particular domains and
  * registers can be applied.
  *
- * @author xxx
+ * @author Ivan Habernal
  */
 public class ArgumentSequenceSentenceLevelReader
         extends XmiReader

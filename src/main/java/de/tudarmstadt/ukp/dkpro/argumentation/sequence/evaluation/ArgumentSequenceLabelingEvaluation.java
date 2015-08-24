@@ -53,7 +53,7 @@ import java.util.*;
 import static java.util.Arrays.asList;
 
 /**
- * @author xxx
+ * @author Ivan Habernal
  */
 public class ArgumentSequenceLabelingEvaluation
 {
@@ -90,9 +90,8 @@ public class ArgumentSequenceLabelingEvaluation
             throws Exception
     {
         ArgumentSequenceLabelingEvaluation evaluation = new ArgumentSequenceLabelingEvaluation();
-        JCommander jCommander = new JCommander(evaluation);
+        JCommander jCommander = new JCommander(evaluation, args);
         try {
-            jCommander.addCommand(args);
             evaluation.run();
         }
         catch (ParameterException e) {
@@ -290,8 +289,8 @@ public class ArgumentSequenceLabelingEvaluation
                                 LemmaLuceneNGramUFE.PARAM_NGRAM_MAX_N, 3,
                                 LDATopicsFeature.PARAM_LDA_MODEL_FILE,
                                 "classpath:/lda/mallet-lda-model-30-topics.bin",
-                                ArgumentSpaceFeatureExtractor.PARAM_CENTROIDS, requiredClusters }
-                        //                        "classpath:/centroids.1000.bin" }
+                                ArgumentSpaceFeatureExtractor.PARAM_CENTROIDS,
+                                requiredClusters != null ? requiredClusters : "" }
                 ));
 
         // various orders of dependencies of transitions in HMM (max 3)
@@ -306,7 +305,6 @@ public class ArgumentSequenceLabelingEvaluation
         Dimension<Double> dimClassificationArgsC = Dimension.create(SVMHMMTestTask.PARAM_C, 5.0);
 
         return new ParameterSpace(Dimension.createBundle("readers", dimReaders),
-                //                Dimension.create(Constants.DIM_DATA_WRITER, SVMHMMDataWriter.class.getName()),
                 Dimension.create(Constants.DIM_LEARNING_MODE, Constants.LM_SINGLE_LABEL),
                 Dimension.create(Constants.DIM_FEATURE_MODE, Constants.FM_SEQUENCE),
                 Dimension.create(Constants.DIM_FEATURE_STORE, SparseFeatureStore.class.getName()),
@@ -322,7 +320,6 @@ public class ArgumentSequenceLabelingEvaluation
                 NUM_FOLDS);
         batch.setParameterSpace(pSpace);
         batch.addInnerReport(TokenLevelEvaluationReport.class);
-        //        batch.addInnerReport(TokenLevelMacroFMReport.class);
         batch.setExecutionPolicy(BatchTask.ExecutionPolicy.RUN_AGAIN);
 
         // Run
@@ -333,23 +330,6 @@ public class ArgumentSequenceLabelingEvaluation
             throws ResourceInitializationException
     {
         return AnalysisEngineFactory.createEngineDescription(NoOpAnnotator.class);
-        // took too much time! moved to annotation preprocessing
-        /*
-        return AnalysisEngineFactory.createEngineDescription(AnalysisEngineFactory
-                .createEngineDescription(TfidfAnnotatorFixed.class,
-                        TfidfAnnotatorFixed.PARAM_FEATURE_PATH, Token.class.getName(),
-                        TfidfAnnotatorFixed.PARAM_TFDF_PATH, "classpath:/tfidf.bin",
-                        TfidfAnnotatorFixed.PARAM_TF_MODE,
-                        TfidfAnnotatorFixed.WeightingModeTf.LOG_PLUS_ONE,
-                        TfidfAnnotatorFixed.PARAM_IDF_MODE,
-                        TfidfAnnotatorFixed.WeightingModeIdf.LOG), AnalysisEngineFactory
-                .createEngineDescription(EmbeddingsAnnotator.class,
-                        EmbeddingsAnnotator.PARAM_CACHE_FILE,
-                        "classpath:/wordEmbeddingsCache.bin",
-                        EmbeddingsAnnotator.PARAM_TFIDF_WEIGHTING, true,
-                        EmbeddingsAnnotator.PARAM_VECTOR_AVERAGING, true
-                        ));
-                        */
     }
 
     public void runInDomainCrossValidation(DocumentDomain documentDomain, ParameterSpace pSpace)

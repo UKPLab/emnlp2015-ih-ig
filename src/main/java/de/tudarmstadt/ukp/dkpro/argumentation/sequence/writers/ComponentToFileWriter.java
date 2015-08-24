@@ -37,7 +37,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
- * @author xxx
+ * @author Ivan Habernal
  */
 public class ComponentToFileWriter
         extends JCasAnnotator_ImplBase

@@ -30,7 +30,7 @@ import org.apache.commons.io.IOUtils;
 import java.io.*;
 
 /**
- * @author xxx
+ * @author Ivan Habernal
  */
 public class GenerateCrossDomainCVReport
 {

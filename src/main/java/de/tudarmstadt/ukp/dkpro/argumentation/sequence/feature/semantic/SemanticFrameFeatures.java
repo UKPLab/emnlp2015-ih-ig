@@ -33,7 +33,7 @@ import java.util.*;
 import static org.apache.uima.fit.util.JCasUtil.selectCovered;
 
 /**
- * @author xxx
+ * @author Ivan Habernal
  */
 public class SemanticFrameFeatures
         extends AbstractUnitSentenceFeatureGenerator

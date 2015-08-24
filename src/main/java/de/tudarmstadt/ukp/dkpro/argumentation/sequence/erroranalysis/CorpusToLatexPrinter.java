@@ -44,7 +44,7 @@ import java.util.List;
 import java.util.Map;
 
 /**
- * @author xxx
+ * @author Ivan Habernal
  */
 public class CorpusToLatexPrinter
         extends JCasAnnotator_ImplBase

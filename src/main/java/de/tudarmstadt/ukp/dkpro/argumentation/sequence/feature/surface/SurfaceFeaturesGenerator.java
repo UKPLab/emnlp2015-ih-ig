@@ -36,8 +36,8 @@ import java.util.List;
  * Kazi Saidul Hasan and Vincent Ng
  * Inspired from Anand et al.'s (2011) features
  *
- * @author xxx
- * @author xxx
+ * @author Ivan Habernal
+ * @author Ivan Habernal
  */
 
 public class SurfaceFeaturesGenerator

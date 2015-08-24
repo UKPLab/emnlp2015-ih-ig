@@ -38,7 +38,7 @@ import javax.swing.tree.DefaultMutableTreeNode;
 import java.util.List;
 
 /**
- * @author xxx
+ * @author Ivan Habernal
  */
 public class RSTFeaturesExtractor
         extends JCasAnnotator_ImplBase

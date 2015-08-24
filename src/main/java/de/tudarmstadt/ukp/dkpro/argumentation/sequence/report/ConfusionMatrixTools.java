@@ -31,7 +31,7 @@ import java.io.IOException;
 import java.util.*;
 
 /**
- * @author xxx
+ * @author Ivan Habernal
  */
 public class ConfusionMatrixTools
 {

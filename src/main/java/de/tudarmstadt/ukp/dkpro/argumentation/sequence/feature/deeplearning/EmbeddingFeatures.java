@@ -32,7 +32,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
- * @author xxx
+ * @author Ivan Habernal
  */
 public class EmbeddingFeatures
         extends AbstractUnitSentenceFeatureGenerator

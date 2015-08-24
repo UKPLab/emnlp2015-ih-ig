@@ -31,7 +31,7 @@ import java.util.HashMap;
 import java.util.Map;
 
 /**
- * @author xxx
+ * @author Ivan Habernal
  */
 public class EvalHelper
 {

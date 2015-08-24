@@ -31,7 +31,7 @@ import java.util.Collections;
 import java.util.List;
 
 /**
- * @author xxx
+ * @author Ivan Habernal
  */
 public abstract class AbstractSequenceMetaDataFeatureGenerator
         extends FeatureExtractorResource_ImplBase

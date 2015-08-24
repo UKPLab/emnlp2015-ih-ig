@@ -34,8 +34,8 @@ import java.util.Collection;
 import java.util.List;
 
 /**
- * @author xxx
- * @author xxx
+ * @author Ivan Habernal
+ * @author Ivan Habernal
  */
 public class ProductionRules
         extends AbstractUnitSentenceFeatureGenerator

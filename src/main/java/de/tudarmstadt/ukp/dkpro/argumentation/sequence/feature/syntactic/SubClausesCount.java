@@ -35,7 +35,7 @@ import static org.apache.uima.fit.util.JCasUtil.selectCovered;
  * Returns The mean number of clauses per sentences, returns Max number of clause in a sentence
  * From "Identifying Argumentative Discourse Strutures in Persuasive Essays"
  *
- * @author xxx
+ * @author Ivan Habernal
  */
 
 /*

@@ -46,7 +46,7 @@ import java.util.*;
  * removes all existing argument annotations and re-annotate the data with the predicted
  * annotations
  *
- * @author xxx
+ * @author Ivan Habernal
  */
 public class SequenceAnnotatorFromTokenLevelPredictions
         extends JCasAnnotator_ImplBase

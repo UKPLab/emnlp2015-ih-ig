@@ -23,7 +23,7 @@ import org.apache.uima.fit.util.JCasUtil;
 import org.apache.uima.jcas.JCas;
 
 /**
- * @author xxx
+ * @author Ivan Habernal
  */
 public enum DocumentRegister
 {

@@ -37,7 +37,7 @@ import java.util.List;
  * Extract POS-n-grams for classification units. Does not treat them binary, but emits the
  * actual counts.
  *
- * @author xxx
+ * @author Ivan Habernal
  */
 public class POSNgram
         extends AbstractUnitSentenceFeatureGenerator

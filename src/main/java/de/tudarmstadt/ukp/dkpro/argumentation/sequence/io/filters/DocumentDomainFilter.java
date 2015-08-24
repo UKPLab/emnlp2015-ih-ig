@@ -27,7 +27,7 @@ import java.util.HashSet;
 import java.util.Set;
 
 /**
- * @author xxx
+ * @author Ivan Habernal
  */
 public class DocumentDomainFilter
         implements DocumentCollectionFilter

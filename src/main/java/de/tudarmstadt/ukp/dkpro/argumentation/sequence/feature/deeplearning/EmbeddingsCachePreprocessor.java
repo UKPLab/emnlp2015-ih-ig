@@ -39,7 +39,7 @@ import java.io.ObjectOutputStream;
 import java.util.*;
 
 /**
- * @author xxx
+ * @author Ivan Habernal
  */
 public class EmbeddingsCachePreprocessor
         extends JCasAnnotator_ImplBase

@@ -36,8 +36,8 @@ import java.util.List;
  * Returns two values -- first sentence in paragraph, last sentence in paragraph, and relative
  * position in paragraph
  *
- * @author xxx
- * @author xxx
+ * @author Ivan Habernal
+ * @author Ivan Habernal
  */
 public class PositionInParagraph
         extends AbstractUnitSentenceFeatureGenerator

@@ -36,7 +36,7 @@ import java.util.List;
 import java.util.SortedMap;
 
 /**
- * @author xxx
+ * @author Ivan Habernal
  */
 public class TokenLevelEvaluationReport
         extends SVMHMMOutcomeIDReport

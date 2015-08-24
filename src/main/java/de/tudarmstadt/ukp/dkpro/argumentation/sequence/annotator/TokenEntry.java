@@ -19,7 +19,7 @@
 package de.tudarmstadt.ukp.dkpro.argumentation.sequence.annotator;
 
 /**
- * @author xxx
+ * @author Ivan Habernal
  */
 class TokenEntry
 {

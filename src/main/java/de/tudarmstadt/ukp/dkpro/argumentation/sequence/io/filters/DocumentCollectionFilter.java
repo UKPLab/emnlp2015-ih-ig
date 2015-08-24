@@ -23,7 +23,7 @@ import org.apache.uima.jcas.JCas;
 /**
  * Filtering documents
  *
- * @author xxx
+ * @author Ivan Habernal
  */
 public interface DocumentCollectionFilter
 {

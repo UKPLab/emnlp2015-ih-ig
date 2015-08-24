@@ -23,7 +23,7 @@ import de.tudarmstadt.ukp.dkpro.lab.reporting.ReportBase;
 import de.tudarmstadt.ukp.dkpro.tc.svmhmm.SVMHMMAdapter;
 
 /**
- * @author xxx
+ * @author Ivan Habernal
  */
 public class SVMAdapterBatchTokenReport
         extends SVMHMMAdapter

@@ -31,7 +31,7 @@ import java.util.SortedMap;
 import java.util.TreeMap;
 
 /**
- * @author xxx
+ * @author Ivan Habernal
  */
 public class SegmentExtractor
 {

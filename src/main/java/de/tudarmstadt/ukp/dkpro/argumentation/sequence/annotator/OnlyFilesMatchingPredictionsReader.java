@@ -44,7 +44,7 @@ import java.io.InputStream;
 import java.util.*;
 
 /**
- * @author xxx
+ * @author Ivan Habernal
  */
 public class OnlyFilesMatchingPredictionsReader
         extends XmiReader

@@ -33,7 +33,7 @@ import java.util.List;
  * Returns relative position of sentence in document and two boolean values: first sentence
  * in document and last sentence in document
  *
- * @author xxx
+ * @author Ivan Habernal
  */
 public class PositionInDocument
         extends AbstractUnitSentenceFeatureGenerator

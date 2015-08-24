@@ -34,7 +34,7 @@ import java.io.FileReader;
 import java.io.IOException;
 
 /**
- * @author xxx
+ * @author Ivan Habernal
  */
 public class TokenLevelBatchCrossValidationReport // this is the default result collector
         extends SVMHMMBatchCrossValidationReport

@@ -45,7 +45,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
- * @author xxx
+ * @author Ivan Habernal
  */
 public class HtmlWriter
         extends JCasConsumer_ImplBase

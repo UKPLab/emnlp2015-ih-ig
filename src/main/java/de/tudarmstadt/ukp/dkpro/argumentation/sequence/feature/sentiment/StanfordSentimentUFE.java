@@ -35,7 +35,7 @@ import static org.apache.uima.fit.util.JCasUtil.selectCovered;
  * Returns five double-valued features for very neg, neg, neu, pos, very pos from Stanford
  * sentiment analysis
  *
- * @author xxx
+ * @author Ivan Habernal
  */
 public class StanfordSentimentUFE
         extends AbstractUnitSentenceFeatureGenerator

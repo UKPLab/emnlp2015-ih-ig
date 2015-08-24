@@ -33,7 +33,7 @@ import java.util.SortedMap;
 /**
  * An additional report for Table 12 (only Macro-F1 and F1 for classes)
  *
- * @author xxx
+ * @author Ivan Habernal
  */
 public class TokenLevelMacroFMReport
         extends SVMHMMOutcomeIDReport
