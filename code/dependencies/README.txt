@@ -1,0 +1,1 @@
+This directory contains several in-house dependencies
