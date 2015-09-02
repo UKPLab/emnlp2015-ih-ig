@@ -1,41 +1,56 @@
-# emnlp2015
+# Exploiting Debate Portals for Argumentation Mining in User-Generated Web Discourse
+
 WORK IN PROGRESS; to be finished before Sept 17, 2015
+
 Source code, data, and supplementary materials to the EMNLP2015 article
 
+```
+@InProceedings{habernal-gurevych:2015:EMNLP2015,
+  author    = {Habernal, Ivan and  Gurevych, Iryna},
+  title     = {Exploiting Debate Portals for Argumentation Mining in User-Generated Web Discourse},
+  booktitle = {Proceedings of the 2015 Conference on Empirical Methods in Natural Language Processing (EMNLP)},
+  month     = {September},
+  year      = {2015},
+  address   = {Lisbon, Portugal},
+  publisher = {Association for Computational Linguistics},
+  pages     = {to appear},
+  url       = {to appear}
+}
+```
 
-
-Exploiting Debate Portals for Argumentation Mining in User-Generated Web Discourse
 EMNLP 2015
-Readme v0.1
+Readme v0.2
 
-= Requirements
+## Requirements
 
-- Java 1.7 and higher, Maven
-- tested on 64-bit Linux versions
-- we recommend 32 GB RAM
+* Java 1.7 and higher, Maven
+* tested on 64-bit Linux versions
+* we recommend 32 GB RAM for running the experiments
 
-= Installation
+## Installation
 
-- Install all dependencies from ./dependencies/3rd-party to your local maven repository
+* Install all Maven dependencies from `code/dependencies/` to your local Maven repository
 
-	$mvn install
+```
+$cd code/dependencies
+$chmod +x installDependencies.sh
+$./installDependencies.sh
+```
 
-in
-	dependencies/3rd-party/de.tudarmstadt.ukp.dkpro.core.api.discourse-asl
-	dependencies/3rd-party/de.tudarmstadt.ukp.dkpro.core.api.sentiment-asl
-	dependencies/3rd-party/dkpro-argumentation
-	dependencies/3rd-party/dkpro-core-rst
+* You don't have to setup any other 3-rd party Maven repository location, all dependencies are located either in this folder or on Maven central.
 
-and the same for dependencies/xxx.web.comments/
+* Compile the main experiment package in `code/experiments`
 
-- Compile the main package in main/
+```
+$cd code/experiments
+$mvn package
+```
 
-	$mvn package
+## Running the experiments
 
-= Running the experiments
-
-	$cd main/target
-	$LC_ALL=en_US.UTF-8 java -XX:+UseSerialGC -Xmx32g -Xms32g -cp lib/*:xxx.argumentation.sequence-0.0.3-SNAPSHOT.jar \
+```
+$cd code/experiments/target
+$LC_ALL=en_US.UTF-8 java -XX:+UseSerialGC -Xmx32g -cp lib/*:xxx.argumentation.sequence-0.0.3-SNAPSHOT.jar \
 	xxx.argumentation.sequence.evaluation.ArgumentSequenceLabelingEvaluation \
 	--featureSet fs0 \
 	--corpusPath data/argumentation-gold-annotated-sentiment-discourse-rst-full-bio-embeddings-xxx \

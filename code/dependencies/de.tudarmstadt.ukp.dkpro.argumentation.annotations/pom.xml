@@ -80,19 +80,6 @@
 			<artifactId>de.tudarmstadt.ukp.dkpro.argumentation.types</artifactId>
 		</dependency>
 
-		<!--for web comments -->
-		<dependency>
-			<groupId>de.tudarmstadt.ukp.dkpro.web.comments</groupId>
-			<artifactId>de.tudarmstadt.ukp.dkpro.web.comments.types</artifactId>
-			<version>0.1-SNAPSHOT</version>
-		</dependency>
-
-
-		<dependency>
-			<groupId>de.tudarmstadt.ukp.dkpro.core</groupId>
-			<artifactId>de.tudarmstadt.ukp.dkpro.core.rst-asl</artifactId>
-		</dependency>
-
 		<!-- api -->
 		<dependency>
 			<groupId>de.tudarmstadt.ukp.dkpro.core</groupId>
@@ -125,12 +112,6 @@
 			<dependency>
 				<groupId>de.tudarmstadt.ukp.dkpro.core</groupId>
 				<artifactId>de.tudarmstadt.ukp.dkpro.core.api.discourse-asl</artifactId>
-				<version>${dkpro.core.version}</version>
-			</dependency>
-
-			<dependency>
-				<groupId>de.tudarmstadt.ukp.dkpro.core</groupId>
-				<artifactId>de.tudarmstadt.ukp.dkpro.core.rst-asl</artifactId>
 				<version>${dkpro.core.version}</version>
 			</dependency>
 

@@ -139,25 +139,6 @@
 		</dependency>
 
 		<dependency>
-			<groupId>de.tudarmstadt.ukp.dkpro.core</groupId>
-			<artifactId>de.tudarmstadt.ukp.dkpro.core.rst-asl</artifactId>
-			<version>${dkpro.core.version}</version>
-		</dependency>
-
-
-		<!--<dependency>-->
-		<!--<groupId>xxx.web.comments</groupId>-->
-		<!--<artifactId>xxx.web.comments.clustering</artifactId>-->
-		<!--<version>0.1-SNAPSHOT</version>-->
-		<!--<exclusions>-->
-		<!--<exclusion>-->
-		<!--<groupId>xxx.web.comments</groupId>-->
-		<!--<artifactId>xxx.web.comments.pipeline</artifactId>-->
-		<!--</exclusion>-->
-		<!--</exclusions>-->
-		<!--</dependency>-->
-
-		<dependency>
 			<groupId>log4j</groupId>
 			<artifactId>log4j</artifactId>
 		</dependency>
