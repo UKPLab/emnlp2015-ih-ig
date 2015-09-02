@@ -21,6 +21,17 @@ Source code, data, and supplementary materials to the EMNLP2015 article
 EMNLP 2015
 Readme v0.2
 
+(C) Ivan Habernal
+Should you have any question, contact me at habernal@ukp.informatik.tu-darmstadt.de
+
+## Project structure
+
+* `code/experiments` -- the core experimental source codes
+* `code/dependencies` -- several in-house dependencies (see README.txt)
+* `data/argumentation-...` -- gold data from "Ivan Habernal and Judith Eckle-Kohler and Iryna Gurevych (2014) Argumentation Mining on the Web from Information Seeking Perspective In: Elena Cabrio and Serena Villata and Adam Wyner : Proceedings of the Workshop on Frontiers and Connections between Argumentation Theory and Natural Language Processing, p. 26--39, CEUR-WS, July 2014. http://ceur-ws.org/Vol-1341/."
+* `data/debates` -- extracted data from debate portals
+* `data/error-analysis` -- supplementary documents for manual error analysis of system predictions in PDF format
+
 ## Requirements
 
 * Java 1.7 and higher, Maven
@@ -97,10 +108,11 @@ $LC_ALL=en_US.UTF-8 java -XX:+UseSerialGC -Xmx32g \
 de.tudarmstadt.ukp.dkpro.argumentation.clustering.ClutoMain \
 word2VecFile sourceDataDir cacheFile tfidfModel clutoMatrixFile
 ```
-  * and provide word2VecFile
+  * Provide `word2VecFile'
     * download `GoogleNews-vectors-negative300.bin.gz` from https://code.google.com/p/word2vec/
   * source dir (outputFolderWithXMIFiles from the previous step)
   * the other three files will be newly created
+
 4. Run CLUTO
   * Download from http://glaros.dtc.umn.edu/gkhome/cluto/cluto/download
 ```
@@ -122,3 +134,10 @@ de.tudarmstadt.ukp.dkpro.argumentation.clustering.ClusterCentroidsMain \
 de.tudarmstadt.ukp.dkpro.web.comments.createdebate.CorpusPreparator htmlFolder outputFolder
 ```
 
+## Annotating unseen data (experimental)
+* In principle, the code can be used to predict argument components on unlabeled plain-text data (but I haven't tried that)
+* You need to preprocess your data sequentially using the UIMA pipelines in `code/dependencies/de.tudarmstadt.ukp.dkpro.argumentation.annotations`
+  * `basic`, `advanced`
+* Label your data with argument BIO annotations (everything will be O)
+* Modify `ArgumentSequenceLabelingEvaluation` so it uses all gold data for training and your data for test
+* Some nonsense evaluation will be printed-out, but the labeled data will be in the output directory (in CSV format, for instance; but they can put back to the documents - drop me a line if you need some advice)
