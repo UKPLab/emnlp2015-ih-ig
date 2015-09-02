@@ -82,38 +82,43 @@ $LC_ALL=en_US.UTF-8 java -XX:+UseSerialGC -Xmx32g \
 ## Creating own clusters (Optional)
 
 1. Preprocessing pipeline - from debates in XML to UIMA XMI files
-	$cd dependencies/xxx.web.comments
-
-- Run xxx.web.comments.pipeline.DebatesToXMIPipeline inputFolderWithXMLFiles outputFolderWithXMIFiles
-
-
-
-2. Prepare data for CLUTO clustering
-	$cd dependencies/xxx.web.comments.clustering
-
-- Run xxx.web.comments.clustering.ClutoMain word2VecFile sourceDataDir cacheFile tfidfModel clutoMatrixFile
-
-and provide word2VecFile (download GoogleNews-vectors-negative300.bin.gz from https://code.google.com/p/word2vec/), source dir (outputFolderWithXMIFiles from the previous step), the other three files will be newly created
-
-3. Run CLUTO
-
-- Download from http://glaros.dtc.umn.edu/gkhome/cluto/cluto/download
-
+  * Extract XML debates in `data/debates`
+  * Run `de.tudarmstadt.ukp.dkpro.argumentation.comments.pipeline.DebatesToXMIPipeline` with two parameters
+    * `inputFolderWithXMLFiles` -- extracted XML files with debates
+    * `outputFolderWithXMIFiles` -- output dir 
+2. (optional) You may want to select relevant debates; we used Lucene search
+  * Look in to the `de.tudarmstadt.ukp.dkpro.argumentation.clustering.debatefiltering` package
+    * `LuceneIndexer` for indexing the XMI files
+    * `LuceneSearcher` for searching using some search terms
+    * There are some hard-coded paths and search terms -- you need to modify the sources here
+3. Prepare data for CLUTO clustering
+  * Run
+```
+de.tudarmstadt.ukp.dkpro.argumentation.clustering.ClutoMain \
+word2VecFile sourceDataDir cacheFile tfidfModel clutoMatrixFile
+```
+  * and provide word2VecFile
+    * download `GoogleNews-vectors-negative300.bin.gz` from https://code.google.com/p/word2vec/
+  * source dir (outputFolderWithXMIFiles from the previous step)
+  * the other three files will be newly created
+4. Run CLUTO
+  * Download from http://glaros.dtc.umn.edu/gkhome/cluto/cluto/download
+```
 	$vcluster -clmethod=rbr -crfun=i2 -sim=cos clutoMatrixFile numberOfClusters
+```
+5. Create centroids
+  * Run
+```
+de.tudarmstadt.ukp.dkpro.argumentation.clustering.ClusterCentroidsMain \
+ clutoMatrixFile clutoOutput outputCentroids
+```
+6. Inject centroids into the experiment code to `main/src/main/resources/clusters` and modify `de.tudarmstadt.ukp.dkpro.argumentation.sequence.feature.clustering.ArgumentSpaceFeatureExtractor`, then run the experiments as described above
 
-4. Create centroids
+### (Optional pre-step 0) Using another unlabeled dataset (i.e., newer version of createdebate.com)
 
-	$cd dependencies/xxx.web.comments.clustering
-
-- Run xxx.web.comments.clustering.ClusterCentroidsMain clutoMatrixFile clutoOutput outputCentroids
-
-5. Inject centroids into the experiment code to main/src/main/resources/clusters and modify xxx.argumentation.sequence.feature.clustering.ArgumentSpaceFeatureExtractor, then run the experiments as described above
-
-[Optional pre-step 0] Using another unlabeled dataset (i.e., newer version of createdebate.com)
-
-- crawl createdebate.com using e.g. apache Nutch and extract the HTML content (using e.g. github.com/xxxx)
-- convert HTML to internal XML documents
-
-	$cd xxx.web.comments/xxx.web.comments.debates/target
-	$java -cp lib/*:xxx.web.comments.extractors-0.1-SNAPSHOT.jar xxx.web.comments.debates.CorpusPreparator htmlFolder outputFolder
+* Crawl createdebate.com using e.g. apache Nutch and extract the HTML content (using e.g. https://github.com/habernal/nutch-content-exporter)
+* Convert HTML to internal XML documents
+```
+de.tudarmstadt.ukp.dkpro.web.comments.createdebate.CorpusPreparator htmlFolder outputFolder
+```
 
