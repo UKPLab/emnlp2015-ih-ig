@@ -18,9 +18,9 @@
 
 package de.tudarmstadt.ukp.dkpro.argumentation.comments.pipeline;
 
-import de.tudarmstadt.ukp.dkpro.argumentation.clustering.createdebate.Argument;
-import de.tudarmstadt.ukp.dkpro.argumentation.clustering.createdebate.Debate;
-import de.tudarmstadt.ukp.dkpro.argumentation.clustering.createdebate.DebateSerializer;
+import de.tudarmstadt.ukp.dkpro.web.comments.createdebate.Argument;
+import de.tudarmstadt.ukp.dkpro.web.comments.createdebate.Debate;
+import de.tudarmstadt.ukp.dkpro.web.comments.createdebate.DebateSerializer;
 import de.tudarmstadt.ukp.dkpro.core.api.metadata.type.DocumentMetaData;
 import org.apache.commons.io.FileUtils;
 import org.apache.uima.UimaContext;

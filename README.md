@@ -50,41 +50,43 @@ $mvn package
 
 ```
 $cd code/experiments/target
-$LC_ALL=en_US.UTF-8 java -XX:+UseSerialGC -Xmx32g -cp lib/*:xxx.argumentation.sequence-0.0.3-SNAPSHOT.jar \
-	xxx.argumentation.sequence.evaluation.ArgumentSequenceLabelingEvaluation \
-	--featureSet fs0 \
-	--corpusPath data/argumentation-gold-annotated-sentiment-discourse-rst-full-bio-embeddings-xxx \
-	--outputPath /tmp \
-	--paramE 0 \
-	--paramT 1 \
-	--scenario cd \
-	--clusters a100,s1000
+$LC_ALL=en_US.UTF-8 java -XX:+UseSerialGC -Xmx32g \
+  -cp lib/*:de.tudarmstadt.ukp.dkpro.argumentation.emnlp2015-0.0.3-SNAPSHOT.jar \
+  de.tudarmstadt.ukp.dkpro.argumentation.sequence.evaluation.ArgumentSequenceLabelingEvaluation \
+  --featureSet fs0 \
+  --corpusPath ../../../data/argumentation-gold-annotated-sentiment-discourse-rst-full-bio-embeddings-emnlp2015-final-fixed \
+  --outputPath /tmp \
+  --scenario cd \
+  --clusters a100,s1000
+```
 
-- Parameter description:
+### Parameter description:
 
-    --cl, --clusters
-       Which clusters? Comma-delimited, e.g., s100,a500
-  * --corpusPath, --c
-       Corpus path with XMI files
-  * --featureSet, --fs
-       Feature set name (e.g., fs0, fs0fs1fs2, fs3fs4, ...)
-  * --outputPath, --o
-       Main output path (folder)
-    --paramE, --e
-       Parameter e for SVMHMM
-       Default: 0
-    --paramT, --t
-       Parameter T for SVMHMM
-       Default: 1
-  * --scenario, --s
-       Evaluation scenario (cv = cross-validation, cd = cross domain, id = in domain)
+* `--cl, --clusters`
+  * Which clusters? Comma-delimited, e.g., s100,a500 (only for feature set 4)
+* `--corpusPath, --c`
+  * Corpus path with gold-standard annotated XMI files
+* `--featureSet, --fs`
+  * Feature set name (e.g., fs0, fs0fs1fs2, fs3fs4, ...)
+* `--outputPath, --o`
+  * Main output path (folder)
+* `--paramE, --e`
+  * Parameter e for SVMHMM (optional)
+  * Default: 0
+* `--paramT, --t`
+  * Parameter T for SVMHMM (optional)
+  * Default: 1
+* `--scenario, --s`
+  * Evaluation scenario (`cv` = cross-validation, `cd` = cross domain, `id` = in domain)
 
-= [Optional] Creating own clusters
+## Creating own clusters (Optional)
 
 1. Preprocessing pipeline - from debates in XML to UIMA XMI files
 	$cd dependencies/xxx.web.comments
 
 - Run xxx.web.comments.pipeline.DebatesToXMIPipeline inputFolderWithXMLFiles outputFolderWithXMIFiles
+
+
 
 2. Prepare data for CLUTO clustering
 	$cd dependencies/xxx.web.comments.clustering
