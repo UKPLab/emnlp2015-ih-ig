@@ -1,28 +1,28 @@
 # Exploiting Debate Portals for Argumentation Mining in User-Generated Web Discourse
 
-WORK IN PROGRESS; to be finished before Sept 17, 2015
-
-Source code, data, and supplementary materials to the EMNLP2015 article
+Source code, data, and supplementary materials for our EMNLP 2015 article. Please use the following citation:
 
 ```
-@InProceedings{habernal-gurevych:2015:EMNLP2015,
-  author    = {Habernal, Ivan and  Gurevych, Iryna},
-  title     = {Exploiting Debate Portals for Argumentation Mining in User-Generated Web Discourse},
-  booktitle = {Proceedings of the 2015 Conference on Empirical Methods in Natural Language Processing (EMNLP)},
+@InProceedings{habernal-gurevych:2015:EMNLP,
+  author    = {Habernal, Ivan  and  Gurevych, Iryna},
+  title     = {Exploiting Debate Portals for Semi-Supervised Argumentation Mining in User-Generated Web Discourse},
+  booktitle = {Proceedings of the 2015 Conference on Empirical Methods in Natural Language Processing},
   month     = {September},
   year      = {2015},
   address   = {Lisbon, Portugal},
   publisher = {Association for Computational Linguistics},
-  pages     = {to appear},
-  url       = {to appear}
+  pages     = {2127--2137},
+  url       = {http://aclweb.org/anthology/D15-1255}
 }
 ```
 
-EMNLP 2015
-
-Readme v0.2
+Readme v0.3; as of 2015-09-10 
 
 &copy; Ivan Habernal, habernal@ukp.informatik.tu-darmstadt.de
+
+http://www.ukp.tu-darmstadt.de/
+
+Don't hesitate to send me an e-mail or report an issue, if something is broken (and it shouldn't be) or if you have further questions.
 
 ## Project structure
 
@@ -36,7 +36,7 @@ Readme v0.2
 
 * Java 1.7 and higher, Maven
 * tested on 64-bit Linux versions
-* we recommend 32 GB RAM for running the experiments
+* we recommend 32 GB RAM for running all the experiments
 
 ## Installation
 
