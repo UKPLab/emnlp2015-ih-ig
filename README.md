@@ -24,6 +24,8 @@ http://www.ukp.tu-darmstadt.de/
 
 Don't hesitate to send me an e-mail or report an issue, if something is broken (and it shouldn't be) or if you have further questions.
 
+For license information, see LICENSE files in `code/*` and `NOTICE.txt`.
+
 ## Project structure
 
 * `code/experiments` -- the core experimental source codes
