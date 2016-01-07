@@ -1,4 +1,4 @@
-Copyright information, 3rd party libraries
+License information, 3rd party libraries
 
 ASL:
 dkpro-tc-core

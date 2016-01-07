@@ -27,8 +27,8 @@
 		<version>0.7.0</version>
 	</parent>
 
-	<groupId>de.tudarmstadt.ukp.dkpro.argumentation.emnlp2015</groupId>
-	<artifactId>de.tudarmstadt.ukp.dkpro.argumentation.emnlp2015</artifactId>
+	<groupId>de.tudarmstadt.ukp.experiments.argumentation.emnlp2015</groupId>
+	<artifactId>de.tudarmstadt.ukp.experiments.argumentation.emnlp2015</artifactId>
 	<version>0.0.3-SNAPSHOT</version>
 
 	<properties>
@@ -135,6 +135,12 @@
 		<dependency>
 			<groupId>de.tudarmstadt.ukp.dkpro.core</groupId>
 			<artifactId>de.tudarmstadt.ukp.dkpro.core.api.sentiment-asl</artifactId>
+			<version>${dkpro.core.version}</version>
+		</dependency>
+
+		<dependency>
+			<groupId>de.tudarmstadt.ukp.dkpro.core</groupId>
+			<artifactId>de.tudarmstadt.ukp.dkpro.core.rst-asl</artifactId>
 			<version>${dkpro.core.version}</version>
 		</dependency>
 
