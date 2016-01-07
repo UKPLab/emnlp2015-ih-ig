@@ -72,8 +72,8 @@ $mvn package
 ```
 $cd code/experiments/target
 $LC_ALL=en_US.UTF-8 java -XX:+UseSerialGC -Xmx32g \
-  -cp lib/*:de.tudarmstadt.ukp.dkpro.argumentation.emnlp2015-0.0.3-SNAPSHOT.jar \
-  de.tudarmstadt.ukp.dkpro.argumentation.sequence.evaluation.ArgumentSequenceLabelingEvaluation \
+  -cp lib/*:de.tudarmstadt.ukp.experiments.argumentation.emnlp2015-0.0.3-SNAPSHOT.jar \
+  de.tudarmstadt.ukp.experiments.argumentation.sequence.evaluation.ArgumentSequenceLabelingEvaluation \
   --featureSet fs0 \
   --corpusPath ../../../data/argumentation-gold-annotated-sentiment-discourse-rst-full-bio-embeddings-emnlp2015-final-fixed \
   --outputPath /tmp \
@@ -106,16 +106,16 @@ The output will be stored in the ``outputPath`` with sub-folders corresponding t
 
 1. Preprocessing pipeline - from debates in XML to UIMA XMI files
   * Extract XML debates in `data/debates`
-  * Run `de.tudarmstadt.ukp.dkpro.argumentation.comments.pipeline.DebatesToXMIPipeline` with two parameters
+  * Run `de.tudarmstadt.ukp.experiments.argumentation.comments.pipeline.DebatesToXMIPipeline` with two parameters
     * `inputFolderWithXMLFiles` -- extracted XML files with debates
     * `outputFolderWithXMIFiles` -- output dir 
 2. (optional) You may want to select relevant debates; we used Lucene search
-  * Look in to the `de.tudarmstadt.ukp.dkpro.argumentation.clustering.debatefiltering` package
+  * Look in to the `de.tudarmstadt.ukp.experiments.argumentation.clustering.debatefiltering` package
     * `LuceneIndexer` for indexing the XMI files
     * `LuceneSearcher` for searching using some search terms
     * There are some hard-coded paths and search terms -- you need to modify the sources here
 3. Prepare data for CLUTO clustering
-  * Run `de.tudarmstadt.ukp.dkpro.argumentation.clustering.ClutoMain word2VecFile sourceDataDir cacheFile tfidfModel clutoMatrixFile`
+  * Run `de.tudarmstadt.ukp.experiments.argumentation.clustering.ClutoMain word2VecFile sourceDataDir cacheFile tfidfModel clutoMatrixFile`
   * Provide `word2VecFile`
     * download `GoogleNews-vectors-negative300.bin.gz` from https://code.google.com/p/word2vec/
   * source dir (outputFolderWithXMIFiles from the previous step)
@@ -124,13 +124,13 @@ The output will be stored in the ``outputPath`` with sub-folders corresponding t
   * Download from http://glaros.dtc.umn.edu/gkhome/cluto/cluto/download
   * `$vcluster -clmethod=rbr -crfun=i2 -sim=cos clutoMatrixFile numberOfClusters`
 5. Create centroids
-  * Run `de.tudarmstadt.ukp.dkpro.argumentation.clustering.ClusterCentroidsMain clutoMatrixFile clutoOutput outputCentroids`
+  * Run `de.tudarmstadt.ukp.experiments.argumentation.clustering.ClusterCentroidsMain clutoMatrixFile clutoOutput outputCentroids`
 6. Inject centroids into the experiment code to `main/src/main/resources/clusters` and modify `de.tudarmstadt.ukp.dkpro.argumentation.sequence.feature.clustering.ArgumentSpaceFeatureExtractor`, then run the experiments as described above
 
 ### (Optional pre-step 0) Using another unlabeled dataset (i.e., newer version of createdebate.com)
 
 * Crawl createdebate.com using e.g. apache Nutch and extract the HTML content (using e.g. https://github.com/habernal/nutch-content-exporter)
-* Convert HTML to internal XML documents `de.tudarmstadt.ukp.dkpro.web.comments.createdebate.CorpusPreparator htmlFolder outputFolder`
+* Convert HTML to internal XML documents `de.tudarmstadt.ukp.experiments.web.comments.createdebate.CorpusPreparator htmlFolder outputFolder`
 
 ## Annotating unseen data (experimental)
 
