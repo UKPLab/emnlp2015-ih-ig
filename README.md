@@ -16,9 +16,17 @@ Source code, data, and supplementary materials for our EMNLP 2015 article. Pleas
 }
 ```
 
-Readme v0.3; as of 2015-09-10 
+> **Abstract:** Analyzing arguments in user-generated Web discourse has recently gained attention in argumentation mining,
+an evolving field of NLP. Current approaches, which employ fully-supervised machine learning,
+are usually domain dependent and suffer from the lack of large and diverse annotated corpora. However,
+annotating arguments in discourse is costly, error-prone, and highly context-dependent. We asked whether
+leveraging unlabeled data in a semi-supervised manner can boost the performance of argument component identification
+and to which extent is the approach independent of domain and register. We propose novel features that exploit clustering
+of unlabeled data from debate portals based on a word embeddings representation. Using these features,
+we significantly outperform several baselines in the cross-validation, cross-domain, and cross-register evaluation scenarios.
 
-&copy; Ivan Habernal, habernal@ukp.informatik.tu-darmstadt.de
+
+Contact person: Ivan Habernal, habernal@ukp.informatik.tu-darmstadt.de
 
 http://www.ukp.tu-darmstadt.de/
 
@@ -72,6 +80,8 @@ $LC_ALL=en_US.UTF-8 java -XX:+UseSerialGC -Xmx32g \
   --scenario cd \
   --clusters a100,s1000
 ```
+
+The output will be stored in the ``outputPath`` with sub-folders corresponding to the feature set and other parameters, including the timestamp.
 
 ### Parameter description:
 
