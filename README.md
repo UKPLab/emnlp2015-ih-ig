@@ -34,6 +34,8 @@ Don't hesitate to send me an e-mail or report an issue, if something is broken (
 
 For license information, see LICENSE files in `code/*` and `NOTICE.txt`.
 
+This repository contains experimental software and is published for the sole purpose of giving additional background details on the respective publication. 
+
 ## Project structure
 
 * `code/experiments` -- the core experimental source codes
