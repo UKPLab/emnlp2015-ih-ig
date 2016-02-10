@@ -61,9 +61,6 @@ public class PDTBDiscourseAnnotator
     private static final String VAL = "value";
     protected PDTBParserWrapper wrapper;
 
-    /**
-     * Will completely ignore rebuttal annotations
-     */
     public static final String PARAM_VERBOSE = "verbose";
     @ConfigurationParameter(name = PARAM_VERBOSE, mandatory = true, defaultValue = "false")
     private boolean verbose;
