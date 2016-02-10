@@ -117,13 +117,13 @@ public class SentimentAndPDTBThreadedAnnotator
         }
 
         // threads
-        ExecutorService executorService = Executors.newFixedThreadPool(nThreads);
+//        ExecutorService executorService = Executors.newFixedThreadPool(nThreads);
 
         for (final File xmi : xmis) {
-            executorService.submit(new Runnable()
-            {
-                @Override public void run()
-                {
+//            executorService.submit(new Runnable()
+//            {
+//                @Override public void run()
+//                {
                     String absolutePath = xmi.getAbsolutePath();
                     System.out.println(absolutePath);
 
@@ -134,14 +134,14 @@ public class SentimentAndPDTBThreadedAnnotator
                     else {
                         System.out.println(xmi.getAbsolutePath() + " already exists");
                     }
-                }
-            });
+//                }
+//            });
         }
 
-        executorService.shutdown();
-        while (!executorService.isTerminated()) {
+//        executorService.shutdown();
+//        while (!executorService.isTerminated()) {
             // wait
-        }
+//        }
 
         // debug output
         readData(outputDir);

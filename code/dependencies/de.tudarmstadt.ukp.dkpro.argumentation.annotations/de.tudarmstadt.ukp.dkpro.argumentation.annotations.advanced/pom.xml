@@ -50,6 +50,11 @@
             <groupId>de.tudarmstadt.ukp.dkpro.argumentation.preprocessing</groupId>
             <artifactId>de.tudarmstadt.ukp.dkpro.argumentation.preprocessing</artifactId>
         </dependency>
+
+        <dependency>
+            <groupId>de.tudarmstadt.ukp.dkpro.core</groupId>
+            <artifactId>de.tudarmstadt.ukp.dkpro.core.api.semantics-asl</artifactId>
+        </dependency>
     </dependencies>
 
     <dependencyManagement>
